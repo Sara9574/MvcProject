@@ -71,8 +71,9 @@
 
 
 <body>
-    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { ReturnUrl = Request.QueryString["ReturnUrl"] }))
     {
+    <input name ="ReturnUrl"value="@Request.QueryString["ReturnUrl"]" hidden />
         <div id="outer-div" width="100%">
 
             <div id="inner-div">

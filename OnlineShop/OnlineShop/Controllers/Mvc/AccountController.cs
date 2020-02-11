@@ -13,7 +13,7 @@ using System.Web.Security;
 
 namespace OnlineShop.Controllers.Mvc
 {
-    public class AccountController : Controller
+    public class AccountController : CustomBaseController
     {
         public ActionResult Login()
         {
@@ -27,6 +27,7 @@ namespace OnlineShop.Controllers.Mvc
         [HttpPost]
         public async Task<ActionResult> Login(LoginViewModel model)
         {
+            string returnUrl = Request.Form["ReturnUrl"] == "" ? "/home/index" : Request.Form["ReturnUrl"];
             using (var db = new OnlineShopDbContext())
             {
                 var user = await db.Users.Where(x => x.Email == model.Email && x.Password == model.Password).FirstOrDefaultAsync();
@@ -45,7 +46,7 @@ namespace OnlineShop.Controllers.Mvc
                 string encTicket = FormsAuthentication.Encrypt(ticket);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
             }
-            return Redirect("/home/index");
+            return Redirect(returnUrl);
         }
 
         [HttpPost]
@@ -102,15 +103,18 @@ namespace OnlineShop.Controllers.Mvc
             return null;
         }
         [CustomAuthorize]
-        public ActionResult UserProfile()
+        public async Task<ActionResult> UserProfile()
         {
-            //var exists = Request.Cookies.AllKeys.Contains(FormsAuthentication.FormsCookieName);
-            //if (exists)
-            //{
-            //    var cookieItem = Request.Cookies[FormsAuthentication.FormsCookieName];
-            //    var ticket = FormsAuthentication.Decrypt(cookieItem.Value);
-            //}
-            return View();
+            using (var db = new OnlineShopDbContext())
+            {
+                var user = await db.Users.Where(x => x.Id == CurrentUserId).Select(x => new UserProfileResponseViewModel
+                {
+                    Email = x.Email,
+                    Fullname = x.Fullname,
+                    Mobile = x.Mobile
+                }).FirstOrDefaultAsync();
+                return View(user);
+            }
         }
     }
 }
