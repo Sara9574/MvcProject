@@ -1,0 +1,116 @@
+﻿using OnlineShop.Filters;
+using OnlineShop.Models;
+using OnlineShop.Models.Tables;
+using OnlineShop.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+
+namespace OnlineShop.Controllers.Mvc
+{
+    public class AccountController : Controller
+    {
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public ActionResult Signup()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Login(LoginViewModel model)
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var user = await db.Users.Where(x => x.Email == model.Email && x.Password == model.Password).FirstOrDefaultAsync();
+                if (user == null)
+                {
+                    ViewBag.Error = "ایمیل یا رمز عبور اشتباه است.";
+                    return null;
+                }
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+                    user.Fullname,
+                    DateTime.Now,
+                    DateTime.Now.AddMinutes(30),
+                    false,
+                    user.Id.ToString(),
+                    FormsAuthentication.FormsCookiePath);
+                string encTicket = FormsAuthentication.Encrypt(ticket);
+                Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+            }
+            return Redirect("/home/index");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Signup(CreateUserViewModel model)
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var newUser = new User
+                {
+                    Email = model.Email,
+                    Fullname = model.Fullname,
+                    Password = model.Password
+                };
+                db.Users.Add(newUser);
+                await db.SaveChangesAsync();
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+                   newUser.Fullname,
+                   DateTime.Now,
+                   DateTime.Now.AddMinutes(30),
+                   false,
+                   newUser.Id.ToString(),
+                   FormsAuthentication.FormsCookiePath);
+                string encTicket = FormsAuthentication.Encrypt(ticket);
+                Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+                return Redirect("/home/index");
+            }
+        }
+
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("/home/index");
+        }
+
+        public ActionResult Test()
+        {
+            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+                "test",
+                DateTime.Now,
+                DateTime.Now.AddMinutes(30),
+                false,
+                "test",
+                FormsAuthentication.FormsCookiePath);
+
+            // Encrypt the ticket.
+            string encTicket = FormsAuthentication.Encrypt(ticket);
+
+            // Create the cookie.
+            Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+            //FormsAuthentication.SetAuthCookie(user.Fullname, false);
+            //var test = User.Identity.Name;
+            //UserId
+            return null;
+        }
+        [CustomAuthorize]
+        public ActionResult UserProfile()
+        {
+            //var exists = Request.Cookies.AllKeys.Contains(FormsAuthentication.FormsCookieName);
+            //if (exists)
+            //{
+            //    var cookieItem = Request.Cookies[FormsAuthentication.FormsCookieName];
+            //    var ticket = FormsAuthentication.Decrypt(cookieItem.Value);
+            //}
+            return View();
+        }
+    }
+}

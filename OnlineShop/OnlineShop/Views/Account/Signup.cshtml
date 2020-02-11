@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Signup";
+}
+<head>
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
+    <style>
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            border-radius: 5px
+        }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+
+        .container {
+            padding: 16px;
+        }
+
+        #outer-div {
+            width: 100%;
+            text-align: center;
+        }
+
+        #inner-div {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 3px;
+            border: 3px solid #f1f1f1;
+            direction: rtl;
+            font-family: IRANSans;
+            border-radius: 5px
+        }
+
+        label {
+            margin: 20px 8px 0 8px
+        }
+
+        h3 {
+            font-family: IRANSans;
+            margin-bottom: 30px
+        }
+    </style>
+</head>
+
+
+<body>
+    @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+    {
+        <div id="outer-div" width="100%">
+
+            <div id="inner-div">
+
+
+                <h3>ثبت نام کاربر</h3>
+
+                <div class="row">
+                    <label class="col-sm-3"><b>ایمیل</b></label>
+                    <div class="col-sm-8">
+                        <input id="email" type="text" name="uname" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-3"><b>نام کامل</b></label>
+                    <div class="col-sm-8">
+                        <input id="fullname" type="text" name="fullname" required>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <label class="col-sm-3"><b>رمز عبور</b></label>
+                    <div class="col-sm-8">
+                        <input id="password" type="password" name="psw" required>
+                    </div>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button id="submit">ثبت نام</button>
+                </div>
+
+            </div>
+        </div>
+    }
+
+</body>
+
+<script type="text/javascript" src="~/scripts/account/signup.js"></script>
