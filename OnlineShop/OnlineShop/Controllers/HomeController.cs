@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using OnlineShop.Models;
+using OnlineShop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,15 +13,9 @@ namespace OnlineShop.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            using (var db = new OnlineShopDbContext())
-            {
-                var categories = await db.Categories.Select(x => new { x.Id, x.Title }).ToListAsync();
-                ViewBag.Categories = JsonConvert.SerializeObject(categories);
-                return View();
-            }
-
+            return View();
         }
 
         public ActionResult About()
@@ -32,9 +27,28 @@ namespace OnlineShop.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
+        }
+        [ChildActionOnly]
+        public ActionResult Categories()
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var result = db.SubCategories.Select(x => new CategoryViewModel()
+                {
+                    CatId = x.CategoryId,
+                    CatTitle = x.Category.Title,
+                    SubCatId = x.Id,
+                    SubCatTitle = x.Title
+                }).ToList();
+                var cats = db.Categories.Select(x => new
+                {
+                    x.Id,
+                    x.Title,
+                }).ToList();
+                ViewBag.Cats = JsonConvert.SerializeObject(cats);
+                return PartialView(result);
+            }
         }
     }
 }

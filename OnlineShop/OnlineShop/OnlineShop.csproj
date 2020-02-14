@@ -195,10 +195,15 @@
     <Compile Include="Migrations\202002140712513_SubCategoryValuesAreInserted.designer.cs">
       <DependentUpon>202002140712513_SubCategoryValuesAreInserted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002141837510_ItemTableIsAdded.cs" />
+    <Compile Include="Migrations\202002141837510_ItemTableIsAdded.designer.cs">
+      <DependentUpon>202002141837510_ItemTableIsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
     <Compile Include="Models\Tables\Category.cs" />
+    <Compile Include="Models\Tables\Item.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
     <Compile Include="Models\Tables\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -400,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002140712513_SubCategoryValuesAreInserted.resx">
       <DependentUpon>202002140712513_SubCategoryValuesAreInserted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002141837510_ItemTableIsAdded.resx">
+      <DependentUpon>202002141837510_ItemTableIsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
