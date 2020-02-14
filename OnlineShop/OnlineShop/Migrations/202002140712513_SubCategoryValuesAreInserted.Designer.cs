@@ -7,13 +7,13 @@ namespace OnlineShop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class SubCategoryValuesAreAdded : IMigrationMetadata
+    public sealed partial class SubCategoryValuesAreInserted : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SubCategoryValuesAreAdded));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SubCategoryValuesAreInserted));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002140427499_SubCategoryValuesAreAdded"; }
+            get { return "202002140712513_SubCategoryValuesAreInserted"; }
         }
         
         string IMigrationMetadata.Source

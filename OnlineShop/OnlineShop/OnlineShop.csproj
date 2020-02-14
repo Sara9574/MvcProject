@@ -173,17 +173,30 @@
     <Compile Include="Migrations\202002110917112_UserTableIsAdded.designer.cs">
       <DependentUpon>202002110917112_UserTableIsAdded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002140424536_SubCategoryTableIsAdded.cs" />
-    <Compile Include="Migrations\202002140424536_SubCategoryTableIsAdded.designer.cs">
-      <DependentUpon>202002140424536_SubCategoryTableIsAdded.cs</DependentUpon>
+    <Compile Include="Migrations\202002140435395_CategoryTableIsAdded.cs" />
+    <Compile Include="Migrations\202002140435395_CategoryTableIsAdded.designer.cs">
+      <DependentUpon>202002140435395_CategoryTableIsAdded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002140427499_SubCategoryValuesAreAdded.cs" />
-    <Compile Include="Migrations\202002140427499_SubCategoryValuesAreAdded.designer.cs">
-      <DependentUpon>202002140427499_SubCategoryValuesAreAdded.cs</DependentUpon>
+    <Compile Include="Migrations\202002140437207_CategoryValuesAreAdded.cs" />
+    <Compile Include="Migrations\202002140437207_CategoryValuesAreAdded.designer.cs">
+      <DependentUpon>202002140437207_CategoryValuesAreAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002140706338_SubCategoryTableIsAdded.cs" />
+    <Compile Include="Migrations\202002140706338_SubCategoryTableIsAdded.designer.cs">
+      <DependentUpon>202002140706338_SubCategoryTableIsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002140710079_SubCategoryTableIsAltered.cs" />
+    <Compile Include="Migrations\202002140710079_SubCategoryTableIsAltered.designer.cs">
+      <DependentUpon>202002140710079_SubCategoryTableIsAltered.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002140712513_SubCategoryValuesAreInserted.cs" />
+    <Compile Include="Migrations\202002140712513_SubCategoryValuesAreInserted.designer.cs">
+      <DependentUpon>202002140712513_SubCategoryValuesAreInserted.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
+    <Compile Include="Models\Tables\Category.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
     <Compile Include="Models\Tables\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -364,11 +377,20 @@
     <EmbeddedResource Include="Migrations\202002110917112_UserTableIsAdded.resx">
       <DependentUpon>202002110917112_UserTableIsAdded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002140424536_SubCategoryTableIsAdded.resx">
-      <DependentUpon>202002140424536_SubCategoryTableIsAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002140435395_CategoryTableIsAdded.resx">
+      <DependentUpon>202002140435395_CategoryTableIsAdded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002140427499_SubCategoryValuesAreAdded.resx">
-      <DependentUpon>202002140427499_SubCategoryValuesAreAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002140437207_CategoryValuesAreAdded.resx">
+      <DependentUpon>202002140437207_CategoryValuesAreAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002140706338_SubCategoryTableIsAdded.resx">
+      <DependentUpon>202002140706338_SubCategoryTableIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002140710079_SubCategoryTableIsAltered.resx">
+      <DependentUpon>202002140710079_SubCategoryTableIsAltered.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002140712513_SubCategoryValuesAreInserted.resx">
+      <DependentUpon>202002140712513_SubCategoryValuesAreInserted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
