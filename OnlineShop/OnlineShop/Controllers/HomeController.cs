@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using OnlineShop.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,9 +12,15 @@ namespace OnlineShop.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            using (var db = new OnlineShopDbContext())
+            {
+                var categories = await db.Categories.Select(x => new { x.Id, x.Title }).ToListAsync();
+                ViewBag.Categories = JsonConvert.SerializeObject(categories);
+                return View();
+            }
+
         }
 
         public ActionResult About()

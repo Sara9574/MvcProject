@@ -1,12 +1,17 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-}
+    Layout="/views/shared/SharedLayout.cshtml";
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    
-</div>
+
+}
+<script src="~/scripts/jquery-3.4.1.min.js"></script>
+
 
 <div class="row">
-   
+
 </div>
+
+<script>
+    var cats = @Html.Raw(ViewBag.Categories);
+</script>
+<script type="text/javascript" src="~/scripts/home/index.js"></script>

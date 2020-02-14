@@ -9,7 +9,7 @@
         {
             Sql(@"insert into Category values
                     (1,N'زنانه','Women'),
-                    (2,N'شلوار','Men'),
+                    (2,N'مردانه','Men'),
                     (3,N'بچگانه','Children')
                     ");
         }
