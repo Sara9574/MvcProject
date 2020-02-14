@@ -13,5 +13,6 @@ namespace OnlineShop.Models
         {
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
     }
 }
