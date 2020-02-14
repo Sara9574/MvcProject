@@ -1,0 +1,133 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.CategoryViewModel>
+<style>
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background: #821130;
+        display: flex;
+        flex-direction: row;
+    }
+
+        ul li {
+            display: block;
+            position: relative;
+            float: left;
+            background: #821130;
+        }
+
+    li ul {
+        display: none;
+    }
+
+    ul li a {
+        display: block;
+        padding: 1em;
+        text-decoration: none;
+        white-space: nowrap;
+        color: #fff;
+        z-index: 100;
+        position: relative;
+    }
+
+
+
+    li:hover > ul {
+        display: block;
+        position: absolute;
+    }
+
+    li:hover li {
+        float: none;
+    }
+
+    li:hover a {
+        background: #821130;
+    }
+
+    li:hover li a:hover {
+        background: #5b0b21;
+    }
+
+    .main-navigation li ul li {
+        border-top: 0;
+    }
+
+    ul ul ul {
+        right: 100%;
+        top: 0;
+    }
+
+    ul:before,
+    ul:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+
+    ul:after {
+        clear: both;
+    }
+
+
+</style>
+
+<div style="direction:rtl">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="background-color:#821130!important">
+        <a class="navbar-brand" href="/home/index" style="font-family:IRANSans;text-align:right">
+            اسم سایت
+            <br />
+            <span style="font-size:10px">فروشگاه آنلاین پوشاک</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-family:IRANSans">
+
+            <ul class="main-navigation" style="margin-right:20px">
+                <li>
+                    <a href="#">دسته‌بندی‌ها</a>
+                    <ul style="text-align:right;">
+                        @foreach (var item in @Json.Decode(ViewBag.Cats))
+                        {
+                            <li style="width:100px">
+                                <a href="#">@item.Title<span style="width:10px;float:left" >></span></a>
+                                <ul>
+                                    @foreach (var items in Model)
+                                    {
+                                        if (items.CatId == item.Id)
+                                        {
+                                            <li><a href="/SubCategory/items/@items.SubCatId">@items.SubCatTitle</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+
+                <li><a href="/home/about">درباره ما</a></li>
+                <li><a href="/home/contact">تماس با ما</a></li>
+            </ul>
+
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="مثلا کفش" aria-label="Search">
+                <button class="btn my-sm-0" type="submit" style="margin-right:20px;border:3px;border-radius:5px;background-color:white">جستجو</button>
+            </form>
+            <div style="margin-right:auto;width:150px;color:#fff!important">
+                @if (!String.IsNullOrWhiteSpace(User.Identity.Name))
+                {
+                    <a href="/account/userprofile">@User.Identity.Name</a>
+                    <span>|</span>
+                    <a href="/account/SignOut"> خروج</a>
+                }
+                else
+                {
+                    <a href="/account/login">ورود</a>
+                    <span>| @ViewBag.Test</span>
+                    <a href="/account/signup">ثبت نام</a>
+                }
+            </div>
+        </div>
+    </nav>
+</div>
