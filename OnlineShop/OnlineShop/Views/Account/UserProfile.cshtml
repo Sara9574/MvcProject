@@ -2,39 +2,39 @@
 
 @{
     ViewBag.Title = "UserProfile";
+    Layout = "/views/shared/SharedLayout.cshtml";
 }
+<style>
+    .profile-wrapper{
+        text-align: right;
+        padding: 20px;
+        font-family: IRANSans;
+        border: 1px solid lightgrey; direction: rtl;
+        margin: auto;
+        display: table;
+        margin:20px auto;
+    }
+</style>
 
-<h2>پروفایل کاربر</h2>
-
-<div>
-    <img src="~/Images/user.png" />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mobile)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Fullname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fullname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
+<div style="width:100%">
+    <div class="col-md-3 col-sm-6 profile-wrapper">
+        <h2>پروفایل کاربر</h2>
+        <img src="~/Images/user.png" style="width: 150px; height: 150px; display: block; margin: auto;" />
+        <div class="row" style="margin-top:20px">
+            <label class="col-6">شماره موبایل:</label>
+            <label class="col-6">@Model.Mobile</label>
+        </div>
+        <div class="row">
+            <label class="col-6">نام و نام خانوادگی:</label>
+            <label class="col-6">@Model.Fullname</label>
+        </div>
+        <div class="row">
+            <label class="col-6">ایمیل:</label>
+            <label class="col-6">@Model.Email</label>
+        </div>
+    </div>
 </div>
+
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
-    @Html.ActionLink("Back to List", "Index")
 </p>
