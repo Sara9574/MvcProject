@@ -58,7 +58,8 @@ namespace OnlineShop.Controllers.Mvc
                 {
                     Email = model.Email,
                     Fullname = model.Fullname,
-                    Password = model.Password
+                    Password = model.Password,
+                    Mobile = model.Mobile
                 };
                 db.Users.Add(newUser);
                 await db.SaveChangesAsync();

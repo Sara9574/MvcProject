@@ -9,10 +9,13 @@
         text-align: right;
         padding: 20px;
         font-family: IRANSans;
-        border: 1px solid lightgrey; direction: rtl;
+        border: 3px solid #f1f1f1; direction: rtl;
         margin: auto;
         display: table;
         margin:20px auto;
+    }
+    .title{
+        font-weight:600
     }
 </style>
 
@@ -21,15 +24,15 @@
         <h2>پروفایل کاربر</h2>
         <img src="~/Images/user.png" style="width: 150px; height: 150px; display: block; margin: auto;" />
         <div class="row" style="margin-top:20px">
-            <label class="col-6">شماره موبایل:</label>
+            <label class="col-6 title">شماره موبایل:</label>
             <label class="col-6">@Model.Mobile</label>
         </div>
         <div class="row">
-            <label class="col-6">نام و نام خانوادگی:</label>
+            <label class="col-6 title">نام کامل:</label>
             <label class="col-6">@Model.Fullname</label>
         </div>
         <div class="row">
-            <label class="col-6">ایمیل:</label>
+            <label class="col-6 title">ایمیل:</label>
             <label class="col-6">@Model.Email</label>
         </div>
     </div>
