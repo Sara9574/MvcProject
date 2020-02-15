@@ -203,11 +203,23 @@
     <Compile Include="Migrations\202002151349103_ImageTypeTableIsAdded.designer.cs">
       <DependentUpon>202002151349103_ImageTypeTableIsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002151600288_ImageTableIsAdded.cs" />
+    <Compile Include="Migrations\202002151600288_ImageTableIsAdded.designer.cs">
+      <DependentUpon>202002151600288_ImageTableIsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002151612266_ImageTypeIsRemoved.cs" />
+    <Compile Include="Migrations\202002151612266_ImageTypeIsRemoved.designer.cs">
+      <DependentUpon>202002151612266_ImageTypeIsRemoved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002151616453_ImagesAreAdded.cs" />
+    <Compile Include="Migrations\202002151616453_ImagesAreAdded.designer.cs">
+      <DependentUpon>202002151616453_ImagesAreAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
     <Compile Include="Models\Tables\Category.cs" />
-    <Compile Include="Models\Tables\ImageType.cs" />
+    <Compile Include="Models\Tables\Image.cs" />
     <Compile Include="Models\Tables\Item.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
     <Compile Include="Models\Tables\User.cs" />
@@ -419,6 +431,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002151349103_ImageTypeTableIsAdded.resx">
       <DependentUpon>202002151349103_ImageTypeTableIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151600288_ImageTableIsAdded.resx">
+      <DependentUpon>202002151600288_ImageTableIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151612266_ImageTypeIsRemoved.resx">
+      <DependentUpon>202002151612266_ImageTypeIsRemoved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151616453_ImagesAreAdded.resx">
+      <DependentUpon>202002151616453_ImagesAreAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

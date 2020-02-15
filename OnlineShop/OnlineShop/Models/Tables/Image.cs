@@ -6,8 +6,10 @@ using System.Web;
 
 namespace OnlineShop.Models.Tables
 {
-    [Table(nameof(ImageType))]
-    public class ImageType : BaseLookUpTable
+    [Table(nameof(Image))]
+    public class Image
     {
+        public int Id { get; set; }
+        public string Link { get; set; }
     }
 }
