@@ -199,10 +199,15 @@
     <Compile Include="Migrations\202002141837510_ItemTableIsAdded.designer.cs">
       <DependentUpon>202002141837510_ItemTableIsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002151349103_ImageTypeTableIsAdded.cs" />
+    <Compile Include="Migrations\202002151349103_ImageTypeTableIsAdded.designer.cs">
+      <DependentUpon>202002151349103_ImageTypeTableIsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
     <Compile Include="Models\Tables\Category.cs" />
+    <Compile Include="Models\Tables\ImageType.cs" />
     <Compile Include="Models\Tables\Item.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
     <Compile Include="Models\Tables\User.cs" />
@@ -227,7 +232,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\p23.jpg" />
     <Content Include="Images\user.png" />
     <Content Include="Scripts\account\login.js" />
     <Content Include="Scripts\account\signup.js" />
@@ -412,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002141837510_ItemTableIsAdded.resx">
       <DependentUpon>202002141837510_ItemTableIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151349103_ImageTypeTableIsAdded.resx">
+      <DependentUpon>202002151349103_ImageTypeTableIsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
