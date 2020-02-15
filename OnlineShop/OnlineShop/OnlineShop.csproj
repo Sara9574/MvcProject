@@ -215,10 +215,23 @@
     <Compile Include="Migrations\202002151616453_ImagesAreAdded.designer.cs">
       <DependentUpon>202002151616453_ImagesAreAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002151653466_ImageIdIsAddedToItemTable.cs" />
+    <Compile Include="Migrations\202002151653466_ImageIdIsAddedToItemTable.designer.cs">
+      <DependentUpon>202002151653466_ImageIdIsAddedToItemTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002151700299_ColorIdIsAddedToItem.cs" />
+    <Compile Include="Migrations\202002151700299_ColorIdIsAddedToItem.designer.cs">
+      <DependentUpon>202002151700299_ColorIdIsAddedToItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002151707023_ColorvaluesAreAdded.cs" />
+    <Compile Include="Migrations\202002151707023_ColorvaluesAreAdded.designer.cs">
+      <DependentUpon>202002151707023_ColorvaluesAreAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
     <Compile Include="Models\Tables\Category.cs" />
+    <Compile Include="Models\Tables\Color.cs" />
     <Compile Include="Models\Tables\Image.cs" />
     <Compile Include="Models\Tables\Item.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
@@ -440,6 +453,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002151616453_ImagesAreAdded.resx">
       <DependentUpon>202002151616453_ImagesAreAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151653466_ImageIdIsAddedToItemTable.resx">
+      <DependentUpon>202002151653466_ImageIdIsAddedToItemTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151700299_ColorIdIsAddedToItem.resx">
+      <DependentUpon>202002151700299_ColorIdIsAddedToItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151707023_ColorvaluesAreAdded.resx">
+      <DependentUpon>202002151707023_ColorvaluesAreAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
