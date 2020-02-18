@@ -68,6 +68,23 @@
     ul:after {
         clear: both;
     }
+
+    .cart-count {
+        color: white;
+        border-radius: 100%;
+        border: solid;
+        width: 23px;
+        height: 23px;
+        position: absolute;
+        left: 30px;
+        background-color: darkgrey;
+        border-color: #821130;
+        display: inline-block;
+        padding: 0 0 0 5px;
+        top: 35px;
+        font-family:IRANSans;
+        font-size:13px;
+    }
 </style>
 
 <div style="direction:rtl">
@@ -125,7 +142,7 @@
                     <span>| @ViewBag.Test</span>
                     <a href="/account/signup">ثبت نام</a>
                 }
-                <i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 20px 0 0"></i>
+                <i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 20px 0 0"></i><spanc class="cart-count">5</spanc>
             </div>
         </div>
 
