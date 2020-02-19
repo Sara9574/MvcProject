@@ -2,22 +2,21 @@
 using OnlineShop.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
 namespace OnlineShop.Controllers.Mvc
 {
-    public class SubCategoryController : Controller
+    public class ItemController : Controller
     {
-        // GET: SubCategory
-        public async Task<ActionResult> Items(int id)
+        // GET: Item
+        [Route("Details/{id}")]
+        public ActionResult Details(int id)
         {
             using (var db = new OnlineShopDbContext())
             {
-                var result = await db.Items.Where(x => x.SubCategoryId == id).Select(x => new ItemViewModel {
+                var item = db.Items.Where(x=>x.Id==id).Select(x=> new ItemViewModel {
                     CatTitle = x.SubCategory.Category.Title,
                     Color = x.Color.Title,
                     Description = x.Desciption,
@@ -26,9 +25,9 @@ namespace OnlineShop.Controllers.Mvc
                     Price = x.Price,
                     SubCatTitle = x.SubCategory.Title,
                     Id = x.Id
-                }).ToListAsync();
-                return View(result);
-            } 
+                }).FirstOrDefault();
+                return View(item);
+            }
         }
     }
 }

@@ -25,12 +25,13 @@
         @foreach (var item in Model)
         {
 
-        <div style="border:2px solid lightgrey;width:200px; margin: 10px;float: right;height:250px;text-align:center;border-radius:10px">
+        <div style="border:2px solid lightgrey;width:200px; margin: 10px;float: right;height:300px;text-align:center;border-radius:10px">
             <img src=@item.Link style="width:130px;height:130px" />
             <label style="font-weight:600">@item.Title</label>
             <hr />
             <label class="lbl">قیمت: @item.Price تومان</label>
             <label class="lbl">رنگ: @item.Color</label>
+            <a class="btn btn-primary" href="/item/details/@item.Id" style="font-size:12px" >مشاهده</a>
         </div>
 
             @*<td>

@@ -166,6 +166,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Mvc\AccountController.cs" />
     <Compile Include="Controllers\Mvc\AjaxController.cs" />
+    <Compile Include="Controllers\Mvc\ItemController.cs" />
     <Compile Include="Controllers\Mvc\SubCategoryController.cs" />
     <Compile Include="Filters\CustomAuthorize.cs" />
     <Compile Include="Global.asax.cs">
@@ -418,6 +419,7 @@
     <Content Include="Views\Shared\SharedLayout.cshtml" />
     <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\SubCategory\Items.cshtml" />
+    <Content Include="Views\Item\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
