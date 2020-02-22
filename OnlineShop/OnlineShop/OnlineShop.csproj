@@ -244,6 +244,14 @@
     <Compile Include="Migrations\202002221800518_InvoiceIsAdded.designer.cs">
       <DependentUpon>202002221800518_InvoiceIsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002221808525_InvoiceItemTableIsAdded.cs" />
+    <Compile Include="Migrations\202002221808525_InvoiceItemTableIsAdded.designer.cs">
+      <DependentUpon>202002221808525_InvoiceItemTableIsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002221814158_InvoiceSumIsAddedToTable.cs" />
+    <Compile Include="Migrations\202002221814158_InvoiceSumIsAddedToTable.designer.cs">
+      <DependentUpon>202002221814158_InvoiceSumIsAddedToTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -251,6 +259,7 @@
     <Compile Include="Models\Tables\Color.cs" />
     <Compile Include="Models\Tables\Image.cs" />
     <Compile Include="Models\Tables\Invoice.cs" />
+    <Compile Include="Models\Tables\InvoiceItem.cs" />
     <Compile Include="Models\Tables\InvoiceState.cs" />
     <Compile Include="Models\Tables\Item.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
@@ -503,6 +512,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002221800518_InvoiceIsAdded.resx">
       <DependentUpon>202002221800518_InvoiceIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002221808525_InvoiceItemTableIsAdded.resx">
+      <DependentUpon>202002221808525_InvoiceItemTableIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002221814158_InvoiceSumIsAddedToTable.resx">
+      <DependentUpon>202002221814158_InvoiceSumIsAddedToTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

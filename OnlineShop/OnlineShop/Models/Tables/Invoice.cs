@@ -17,5 +17,6 @@ namespace OnlineShop.Models.Tables
         public int InvoiceStateId { get; set; }
         [ForeignKey(nameof(InvoiceStateId))]
         public InvoiceState InvoiceState { get; set; }
+        public int InvoiceSum { get; set; }
     }
 }
