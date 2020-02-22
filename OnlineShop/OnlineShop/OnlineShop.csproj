@@ -232,12 +232,26 @@
     <Compile Include="Migrations\202002151719459_SkirtItemsAreAdded.designer.cs">
       <DependentUpon>202002151719459_SkirtItemsAreAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002221712544_InvoiceStateIsAdded.cs" />
+    <Compile Include="Migrations\202002221712544_InvoiceStateIsAdded.designer.cs">
+      <DependentUpon>202002221712544_InvoiceStateIsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002221725519_InvoiceStateValuesAreInserted.cs" />
+    <Compile Include="Migrations\202002221725519_InvoiceStateValuesAreInserted.designer.cs">
+      <DependentUpon>202002221725519_InvoiceStateValuesAreInserted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002221800518_InvoiceIsAdded.cs" />
+    <Compile Include="Migrations\202002221800518_InvoiceIsAdded.designer.cs">
+      <DependentUpon>202002221800518_InvoiceIsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
     <Compile Include="Models\Tables\Category.cs" />
     <Compile Include="Models\Tables\Color.cs" />
     <Compile Include="Models\Tables\Image.cs" />
+    <Compile Include="Models\Tables\Invoice.cs" />
+    <Compile Include="Models\Tables\InvoiceState.cs" />
     <Compile Include="Models\Tables\Item.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
     <Compile Include="Models\Tables\User.cs" />
@@ -480,6 +494,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002151719459_SkirtItemsAreAdded.resx">
       <DependentUpon>202002151719459_SkirtItemsAreAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002221712544_InvoiceStateIsAdded.resx">
+      <DependentUpon>202002221712544_InvoiceStateIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002221725519_InvoiceStateValuesAreInserted.resx">
+      <DependentUpon>202002221725519_InvoiceStateValuesAreInserted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002221800518_InvoiceIsAdded.resx">
+      <DependentUpon>202002221800518_InvoiceIsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
