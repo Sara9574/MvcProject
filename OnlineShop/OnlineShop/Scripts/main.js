@@ -1,5 +1,10 @@
 ﻿$(document).ready(function () {
     console.log("hi");
+
+    $("#cart-count").text("1");
+    $("#cart-count").addClass("cart-count");
+
+   
     //$.get("/ajax/categories", function (data, status) {
     //    console.log(data);
     //    var mySelect = $('.dropdown-menu');
