@@ -30,9 +30,9 @@
                 <hr />
                 <label class="lbl">قیمت: @item.Price تومان</label>
                 <label class="lbl">رنگ: @item.Color</label>
-                <button class="btn btn-danger remove-btn" style="padding: 1px 9px;">-</button>
+                <button class="btn btn-danger remove-btn" style="padding: 1px 9px;" value="@item.Id">-</button>
                 <span style="background-color:lightgray;padding: 1px 7px;border-radius:3px">0</span>
-                <button class="btn btn-success add-btn" style="padding: 1px 7px;">+</button>
+                <button class="btn btn-success add-btn" style="padding: 1px 7px;" value="@item.Id">+</button>
                 <a class="btn btn-primary" href="/item/details/@item.Id" style="font-size:12px">مشاهده</a>
 
             </div>
