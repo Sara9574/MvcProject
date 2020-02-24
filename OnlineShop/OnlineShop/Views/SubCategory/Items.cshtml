@@ -11,8 +11,49 @@
     <title>@Model.FirstOrDefault().SubCatTitle  @Model.FirstOrDefault().CatTitle</title>
     <style>
         .lbl {
-            display: block;
-            font-size: 12px
+            font-size: 12px;
+        }
+
+        .add-btn {
+            padding: 1px 7px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 3px 3px 15px -6px grey;
+            background-color: #fafafa;
+        }
+
+            .add-btn:hover {
+                background-color: #cfffcd !important;
+            }
+
+        .remove-btn {
+            padding: 1px 9px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 3px 3px 15px -6px grey;
+            background-color: #fafafa
+        }
+
+            .remove-btn:hover {
+                background-color: #ffcdcd !important;
+            }
+
+        #count {
+            background-color: #e5e5e5;
+            padding: 1px 7px;
+            border-radius: 3px;
+            box-shadow: 1px 3px 15px -6px grey;
+            font-size: 13px;
+        }
+
+            #count:hover {
+                cursor: default;
+            }
+
+        .btn-details {
+            font-size: 11px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 1px 1px 8px -4px grey;
+            background-color: #fafafa;
+            margin-bottom:5px
         }
     </style>
 </head>
@@ -20,46 +61,21 @@
     <h3 style="float:right;font-family:IRANSans;margin:20px">
         @Model.FirstOrDefault().SubCatTitle  @Model.FirstOrDefault().CatTitle
     </h3>
-    <div style="float:right;width:100%;display: inline-block;font-family:IRANSans">
+    <div style="float:right;width:100%;display: inline-block;font-family:IRANSans" id="item-wrapper">
         @foreach (var item in Model)
         {
 
-            <div style="box-shadow:2px 6px 20px -12px grey;border:1px solid #f7f7f7;width:200px; margin: 10px;float: right;height:300px;text-align:center;border-radius:10px">
-                <img src=@item.Link style="width:130px;height:130px" />
-                <label style="font-weight:600">@item.Title</label>
+            <div style="box-shadow:2px 6px 20px -12px grey;border:1px solid #f7f7f7;width:200px; margin: 10px;float: right;height:305px;text-align:center;border-radius:10px">
+                <img src=@item.Link style="width:110px;height:110px" />
                 <hr />
-                <label class="lbl">قیمت: @item.Price تومان</label>
-                <label class="lbl">رنگ: @item.Color</label>
-                <button class="btn btn-danger remove-btn" style="padding: 1px 9px;" value="@item.Id">-</button>
-                <span style="background-color:lightgray;padding: 1px 7px;border-radius:3px">0</span>
-                <button class="btn btn-success add-btn" style="padding: 1px 7px;" value="@item.Id">+</button>
-                <a class="btn btn-primary" href="/item/details/@item.Id" style="font-size:12px">مشاهده</a>
-
+                <div style="font-weight:600;font-size:14px">@item.Title</div>
+                <div style="font-size:12px;margin:5px 0"> <label>تومان</label> @item.Price </div>
+                <button class="btn remove-btn" value="@item.Id">-</button>
+                <span id="count">0</span>
+                <button class="btn add-btn" value="@item.Id">+</button>
+                <hr />
+                <a class="btn btn-details" href="/item/details/@item.Id">جزئیات</a>
             </div>
-
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CatTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubCatTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Color)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Link)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>*@
-
-
         }
 
     </div>
