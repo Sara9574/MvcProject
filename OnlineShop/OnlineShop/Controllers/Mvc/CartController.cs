@@ -20,7 +20,7 @@ namespace OnlineShop.Controllers.Mvc
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddToCart(int id)
+        public async Task<ActionResult> Add(int id)
         {
             using (var db = new OnlineShopDbContext())
             {
@@ -90,6 +90,30 @@ namespace OnlineShop.Controllers.Mvc
                 new ItemCountViewModel { Id = x.ItemId, Count = x.Count }).ToListAsync();
                 return Json(items, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Remove(int id)
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var currentInvoiceItems = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId).ToListAsync();
+                if (currentInvoiceItems.Where(x => x.ItemId == id).Select(x => x.Count).FirstOrDefault() > 1)
+                {
+                    var currentInvoiceItem = currentInvoiceItems.Where(x => x.ItemId == id).FirstOrDefault();
+                    currentInvoiceItem.Count--;
+                    currentInvoiceItem.TotalPrice = (currentInvoiceItem.Count * currentInvoiceItem.EachItemPrice);
+                    currentInvoiceItem.SubmissionDate = DateTime.Now;
+                    await db.SaveChangesAsync();
+                }
+                else
+                {
+                    var invoiceItem = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId).FirstOrDefaultAsync();
+                    db.InvoiceItems.Remove(invoiceItem);
+                    await db.SaveChangesAsync();
+                }
+            }
+            return null;
         }
     }
 }

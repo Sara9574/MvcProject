@@ -11,8 +11,6 @@
                 }
             });
         });
-
-
     })
 
     $(".add-btn").on('click', function (e) {
@@ -20,27 +18,37 @@
 
         $.ajax({
             type: "POST",
-            url: '/cart/AddToCart',
+            url: '/cart/Add',
             data: { id: $(this).val() },
         }).fail(function () {
             alert("error");
         })
             .always(function () {
                 $.get("/cart/Count", function (data, status) {
-                    $("#cart-count").text(data)
+                    $("#cart-count").text(data);
+                    let currentCount = parseInt(current);
+                    $(this).closest('div').find('span').text(currentCount + 1)
                 })
             });;
-
-        let currentCount = parseInt(current);
-        $(this).closest('div').find('span').text(currentCount + 1)
     });
 
     $(".remove-btn").on('click', function (e) {
         let current = $(this).closest('div').find('span').text();
-        console.log($(this).val());
-        let currentCount = parseInt(current);
-        if (currentCount > 0) {
-            $(this).closest('div').find('span').text(currentCount - 1)
-        }
+        $.ajax({
+            type: "POST",
+            url: '/cart/remove',
+            data: { id: $(this).val() },
+        }).fail(function () {
+            alert("error");
+        })
+            .always(function () {
+                $.get("/cart/Count", function (data, status) {
+                    $("#cart-count").text(data);
+                    let currentCount = parseInt(current);
+                    if (currentCount > 0) {
+                        $(this).closest('div').find('span').text(currentCount - 1)
+                    }
+                })
+            });;
     });
 });
