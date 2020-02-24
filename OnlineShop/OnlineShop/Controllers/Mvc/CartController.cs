@@ -1,5 +1,6 @@
 ﻿using OnlineShop.Models;
 using OnlineShop.Models.Tables;
+using OnlineShop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -61,7 +62,7 @@ namespace OnlineShop.Controllers.Mvc
                         SubmissionDate = DateTime.Now,
                         Count = 1,
                         EachItemPrice = item.Price,
-                        TotalPrice =item.Price,
+                        TotalPrice = item.Price,
                     };
                     db.InvoiceItems.Add(invoiceItem);
                     await db.SaveChangesAsync();
@@ -77,7 +78,18 @@ namespace OnlineShop.Controllers.Mvc
             {
                 var count = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId).SumAsync(x => x.Count);
                 return Json(count, JsonRequestBehavior.AllowGet);
-            }    
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> ItemCount()
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var items = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId).Select(x =>
+                new ItemCountViewModel { Id = x.ItemId, Count = x.Count }).ToListAsync();
+                return Json(items, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }
