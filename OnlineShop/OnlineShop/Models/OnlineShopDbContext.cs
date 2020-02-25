@@ -18,6 +18,8 @@ namespace OnlineShop.Models
         public DbSet<Item> Items { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Color> Colors { get; set; }
-
+        public DbSet<InvoiceState> InvoiceStates { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<InvoiceItem> InvoiceItems { get; set; }
     }
 }
