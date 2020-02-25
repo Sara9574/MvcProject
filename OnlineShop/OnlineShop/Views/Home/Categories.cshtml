@@ -94,6 +94,9 @@
         z-index: 100;
         overflow: hidden;
     }
+    #cart-icon:hover{
+        color:white
+    }
 </style>
 
 <div style="direction:rtl" id="myHeader">
@@ -151,7 +154,9 @@
                     <span>| @ViewBag.Test</span>
                     <a href="/account/signup">ثبت نام</a>
                 }
-                <i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 20px 0 0"></i><spanc id="cart-count" style="display:none"></spanc>
+            <a href="/cart" id="cart-icon">
+                <i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 20px 0 0" ></i><span id="cart-count" style="display:none"></span>
+            </a>
             </div>
         </div>
 

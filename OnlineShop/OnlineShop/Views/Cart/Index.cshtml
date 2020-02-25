@@ -1,0 +1,53 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.CartViewModel>
+
+@{
+    Layout = "/views/shared/SharedLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <style>
+        .item-wrapper {
+            background-color: white;
+            box-shadow: 2px 6px 20px -12px grey;
+            border: 1px solid #f7f7f7;
+            margin: 5px 40px;
+            direction: rtl;
+        }
+    </style>
+
+
+</head>
+<body style="background-color:#f7f7f7;font-family:IRANSans">
+
+    <div style="text-align:right">
+        @foreach (var item in Model)
+        {
+            <div class="row item-wrapper" style="direction:rtl;margin-right:100px;width:60%;margin-left:auto">
+
+                <img src="@item.ImageLink" class="col-md-3 " />
+                <label class="col-md-2">
+                    @item.Title
+                    <span style="margin-top:20px;display:block">@item.Color</span>
+                </label>
+
+                <div class="col-md-3" style="margin-top:30px">
+                    <button class="btn remove-btn" value="@item.Id">-</button>
+                    <span id="count">@item.Count</span>
+                    <button class="btn add-btn" value="@item.Id">+</button>
+                </div>
+
+            </div>
+
+
+
+
+        }
+
+    </div>
+</body>
+</html>

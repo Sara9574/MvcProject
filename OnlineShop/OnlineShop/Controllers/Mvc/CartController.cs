@@ -1,4 +1,5 @@
-﻿using OnlineShop.Models;
+﻿using OnlineShop.Filters;
+using OnlineShop.Models;
 using OnlineShop.Models.Tables;
 using OnlineShop.ViewModels;
 using System;
@@ -14,9 +15,24 @@ namespace OnlineShop.Controllers.Mvc
     public class CartController : CustomBaseController
     {
         // GET: Cart
-        public ActionResult Index()
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult> Index()
         {
-            return View();
+            using (var db = new OnlineShopDbContext())
+            {
+                var list = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId && x.Invoice.InvoiceStateId == 1).Select(x => new CartViewModel()
+                {
+                    Color = x.Item.Color.Title,
+                    Title = x.Item.Title,
+                    Count = x.Count,
+                    ImageLink = x.Item.Image.Link,
+                    Id = x.ItemId,
+                    EachPrice = x.EachItemPrice,
+                    TotalPrice = x.TotalPrice
+                }).ToListAsync();
+                return View(list);
+            }
         }
 
         [HttpPost]
