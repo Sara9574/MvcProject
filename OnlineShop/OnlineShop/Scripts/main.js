@@ -5,6 +5,9 @@
             $("#cart-count").addClass("cart-count");
             $("#cart-count").text(data)
         }
+        else {
+            $("#cart-count").removeClass("cart-count");
+        }
     })
     //$.get("/ajax/categories", function (data, status) {
     //    console.log(data);

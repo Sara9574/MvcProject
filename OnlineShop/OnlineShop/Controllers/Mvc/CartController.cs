@@ -76,7 +76,8 @@ namespace OnlineShop.Controllers.Mvc
         {
             using (var db = new OnlineShopDbContext())
             {
-                var count = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId).SumAsync(x => x.Count);
+
+                var count = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId).Select(x => x.Count).DefaultIfEmpty(0).SumAsync(x => x);
                 return Json(count, JsonRequestBehavior.AllowGet);
             }
         }
@@ -108,7 +109,7 @@ namespace OnlineShop.Controllers.Mvc
                 }
                 else
                 {
-                    var invoiceItem = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId).FirstOrDefaultAsync();
+                    var invoiceItem = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId && x.ItemId == id).FirstOrDefaultAsync();
                     db.InvoiceItems.Remove(invoiceItem);
                     await db.SaveChangesAsync();
                 }
