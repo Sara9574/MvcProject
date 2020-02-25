@@ -79,17 +79,25 @@
         left: 30px;
         background-color: darkgrey;
         border-color: #821130;
-        display: inline-block!important;
-        padding:1px;
-        text-align:center;
+        display: inline-block !important;
+        padding: 1px;
+        text-align: center;
         top: 35px;
-        font-family:IRANSans;
-        font-size:13px;
+        font-family: IRANSans;
+        font-size: 13px;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        overflow: hidden;
     }
 </style>
 
-<div style="direction:rtl">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="background-color:#821130!important">
+<div style="direction:rtl" id="myHeader">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="background-color:#821130!important;">
         <a class="navbar-brand" href="/home/index" style="font-family:IRANSans;text-align:right">
             اسم سایت
             <br />
