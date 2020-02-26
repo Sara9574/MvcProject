@@ -1,18 +1,16 @@
-﻿window.onscroll = function () { myFunction() };
+﻿//window.onscroll = function () { myFunction() };
 
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop + 5;
-console.log(header.offsetTop);
+//var header = document.getElementById("myHeader");
+//var sticky = header.offsetTop + 5;
 
 
-function myFunction() {
-    console.log(window.pageYOffset);
-    if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-    } else {
-        header.classList.remove("sticky");
-    }
-}
+//function myFunction() {
+//    if (window.pageYOffset > sticky) {
+//        header.classList.add("sticky");
+//    } else {
+//        header.classList.remove("sticky");
+//    }
+//}
 
 $(document).ready(function () {
    

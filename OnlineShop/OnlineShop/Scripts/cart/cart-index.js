@@ -1,16 +1,6 @@
 ﻿$(document).ready(function () {
 
 
-    $.get("/cart/ItemCount", function (data, status) {
-        $.each(data, function (key, value) {
-            $('#items').children('div').children('span').each(function () {
-                if ($(this).closest('div').find('button').val() == value.Id) {
-                    $(this).closest('div').find('span').text(value.Count);
-                }
-            });
-        });
-    })
-
     $(".add-btn").on('click', function (e) {
         var current = $(this).closest('div').find('span').text();
 
@@ -61,4 +51,6 @@
             $(this).closest('div').find('span').text(currentCount - 1)
         }
     });
-});
+
+    
+})

@@ -6,17 +6,161 @@
 
 <!DOCTYPE html>
 
-<html>
+
 <head>
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
     <style>
-        .item-wrapper {
+        /*.item-wrapper {
             background-color: white;
             box-shadow: 2px 6px 20px -12px grey;
             border: 1px solid #f7f7f7;
             margin: 5px 40px;
             direction: rtl;
+        }
+
+        .add-btn {
+            padding: 1px 7px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 3px 3px 15px -6px grey;
+            background-color: #fafafa;
+            margin-right: 30px
+        }
+
+            .add-btn:hover {
+                background-color: #cfffcd !important;
+            }
+
+        .remove-btn {
+            padding: 1px 9px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 3px 3px 15px -6px grey;
+            background-color: #fafafa
+        }
+
+            .remove-btn:hover {
+                background-color: #ffcdcd !important;
+            }
+
+        #count {
+            background-color: #e5e5e5;
+            padding: 1px 7px;
+            border-radius: 3px;
+            box-shadow: 1px 3px 15px -6px grey;
+            font-size: 13px;
+        }
+
+            #count:hover {
+                cursor: default;
+            }
+
+        .vl {
+            border-left: 1px solid lightgrey;
+            height: auto;
+            margin: 20px 5px
+        }*/
+
+        .lbl {
+            font-size: 12px;
+        }
+
+        .add-btn {
+            padding: 1px 7px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 3px 3px 15px -6px grey;
+            background-color: #fafafa;
+        }
+
+            .add-btn:hover {
+                background-color: #cfffcd !important;
+            }
+
+        .remove-btn {
+            padding: 1px 9px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 3px 3px 15px -6px grey;
+            background-color: #fafafa
+        }
+
+            .remove-btn:hover {
+                background-color: #ffcdcd !important;
+            }
+
+        #count {
+            background-color: #e5e5e5;
+            padding: 1px 7px;
+            border-radius: 3px;
+            box-shadow: 1px 3px 15px -6px grey;
+            font-size: 13px;
+            font-family:IRANSansFaNum
+        }
+
+            #count:hover {
+                cursor: default;
+            }
+
+        .btn-details {
+            font-size: 11px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 1px 1px 8px -4px grey;
+            background-color: #fafafa;
+            margin-bottom: 5px
+        }
+
+        #item-wrapper {
+            box-shadow: 2px 6px 20px -12px grey;
+            border: 1px solid #f7f7f7;
+            width: 100%;
+            margin: 10px 70px;
+            float: right;
+            height: 150px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+            #item-wrapper:hover {
+                background-color: #f7f7f7
+            }
+
+        #items {
+            float: right;
+            width: 55%;
+            display: inline-block;
+            font-family: IRANSans;
+        }
+
+        .factor {
+            float: left;
+            width: 25%;
+            height: 60%;
+            background-color: white;
+            margin: 10px 70px;
+            box-shadow: 2px 6px 20px -12px grey;
+            border: 1px solid #f7f7f7;
+            border-radius: 10px;
+            position: fixed
+        }
+
+        .factor-title {
+            text-align: center;
+            font-size: 16px;
+            display: block;
+            margin: 20px;
+        }
+
+        #submit-btn {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            background-color: rgb(255, 4, 73);
+            color: white;
+            box-shadow: 2px 6px 20px -12px grey;
+            border: 1px solid rgb(255, 4, 73);
+            border-radius: 10px;
+            padding: 3px 10px;
+            font-size: 14px;
         }
     </style>
 
@@ -24,30 +168,38 @@
 </head>
 <body style="background-color:#f7f7f7;font-family:IRANSans">
 
-    <div style="text-align:right">
+
+
+    <div id="items">
         @foreach (var item in Model)
         {
-            <div class="row item-wrapper" style="direction:rtl;margin-right:100px;width:60%;margin-left:auto">
 
-                <img src="@item.ImageLink" class="col-md-3 " />
-                <label class="col-md-2">
-                    @item.Title
-                    <span style="margin-top:20px;display:block">@item.Color</span>
-                </label>
-
-                <div class="col-md-3" style="margin-top:30px">
-                    <button class="btn remove-btn" value="@item.Id">-</button>
-                    <span id="count">@item.Count</span>
-                    <button class="btn add-btn" value="@item.Id">+</button>
-                </div>
-
+        <div id="item-wrapper">
+            <img src=@item.ImageLink style="width:100px;height:100px; float:right;margin:20px 40px" />
+            <div style="float:right;margin:20px;width:auto;text-align:right">
+                <div style="font-weight:600;font-size:15px">@item.Title</div>
+                <div> رنگ: @item.Color</div>
+                <div> M :سایز</div>
             </div>
 
 
+            <div style="width:auto;margin:30px;float:left">
+                <i class="fa fa-trash-o" title="حذف" style="margin-right:20px;font-size:20px;color:#3c3c3c;"></i>
+                    <button class="btn remove-btn" value="@item.Id">-</button>
+                    <span id="count">@item.Count</span>
+                    <button class="btn add-btn" value="@item.Id">+</button>
+                <div style="font-size:15px; margin-top:40px; font-family:IRANSansFaNum;text-align:right"> <label style="font-size:13px">تومان</label> @item.EachPrice </div>
+            </div>
+            
 
-
+        </div>
         }
-
     </div>
+    <div class="factor">
+        <span class="factor-title">اطلاعات فاکتور</span>
+        <hr />
+        <button id="submit-btn">ثبت و پرداخت فاکتور</button>
+    </div>
+
 </body>
-</html>
+<script type="text/javascript" src="~/scripts/cart/cart-index.js"></script>
