@@ -12,54 +12,6 @@
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
     <style>
-        /*.item-wrapper {
-            background-color: white;
-            box-shadow: 2px 6px 20px -12px grey;
-            border: 1px solid #f7f7f7;
-            margin: 5px 40px;
-            direction: rtl;
-        }
-
-        .add-btn {
-            padding: 1px 7px;
-            border: 1px solid #f7f7f7;
-            box-shadow: 3px 3px 15px -6px grey;
-            background-color: #fafafa;
-            margin-right: 30px
-        }
-
-            .add-btn:hover {
-                background-color: #cfffcd !important;
-            }
-
-        .remove-btn {
-            padding: 1px 9px;
-            border: 1px solid #f7f7f7;
-            box-shadow: 3px 3px 15px -6px grey;
-            background-color: #fafafa
-        }
-
-            .remove-btn:hover {
-                background-color: #ffcdcd !important;
-            }
-
-        #count {
-            background-color: #e5e5e5;
-            padding: 1px 7px;
-            border-radius: 3px;
-            box-shadow: 1px 3px 15px -6px grey;
-            font-size: 13px;
-        }
-
-            #count:hover {
-                cursor: default;
-            }
-
-        .vl {
-            border-left: 1px solid lightgrey;
-            height: auto;
-            margin: 20px 5px
-        }*/
 
         .lbl {
             font-size: 12px;
@@ -93,7 +45,7 @@
             border-radius: 3px;
             box-shadow: 1px 3px 15px -6px grey;
             font-size: 13px;
-            font-family:IRANSansFaNum
+            font-family: IRANSansFaNum
         }
 
             #count:hover {
@@ -134,13 +86,14 @@
         .factor {
             float: left;
             width: 25%;
-            height: 60%;
+            height: 55%;
             background-color: white;
             margin: 10px 70px;
             box-shadow: 2px 6px 20px -12px grey;
             border: 1px solid #f7f7f7;
             border-radius: 10px;
-            position: fixed
+            position: fixed;
+            display: none;
         }
 
         .factor-title {
@@ -174,32 +127,74 @@
         @foreach (var item in Model)
         {
 
-        <div id="item-wrapper">
-            <img src=@item.ImageLink style="width:100px;height:100px; float:right;margin:20px 40px" />
-            <div style="float:right;margin:20px;width:auto;text-align:right">
-                <div style="font-weight:600;font-size:15px">@item.Title</div>
-                <div> رنگ: @item.Color</div>
-                <div> M :سایز</div>
-            </div>
+            <div id="item-wrapper">
+                <img src=@item.ImageLink style="width:100px;height:100px; float:right;margin:20px 40px" />
+                <div style="float:right;margin:20px;width:auto;text-align:right">
+                    <div style="font-weight:600;font-size:15px">@item.Title</div>
+                    <div> رنگ: @item.Color</div>
+                    <div> M :سایز</div>
+                </div>
 
 
-            <div style="width:auto;margin:30px;float:left">
-                <i class="fa fa-trash-o" title="حذف" style="margin-right:20px;font-size:20px;color:#3c3c3c;"></i>
+                <div style="width:auto;margin:30px;float:left">
+                    <i class="fa fa-trash-o" title="حذف" style="margin-right:20px;font-size:20px;color:#3c3c3c;"></i>
                     <button class="btn remove-btn" value="@item.Id">-</button>
                     <span id="count">@item.Count</span>
                     <button class="btn add-btn" value="@item.Id">+</button>
-                <div style="font-size:15px; margin-top:40px; font-family:IRANSansFaNum;text-align:right"> <label style="font-size:13px">تومان</label> @item.EachPrice </div>
-            </div>
-            
+                    <div style="font-size:15px; margin-top:40px; font-family:IRANSansFaNum;text-align:right"> <label style="font-size:13px">تومان</label> @item.TotalPrice </div>
+                </div>
 
-        </div>
+            </div>
         }
     </div>
     <div class="factor">
         <span class="factor-title">اطلاعات فاکتور</span>
         <hr />
+        <div style="direction: rtl;text-align:right;margin:20px;">
+            <div style="width:auto;display:inline-block;direction: ltr;">قیمت اقلام</div>
+            <div style="float:left">
+
+                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px">۴۰۰۰۰</div>
+                <div style="display:inline-block">تومان</div>
+            </div>
+
+
+        </div>
+
+
+        <div style="direction: rtl;text-align:right;margin:20px;">
+            <div style="width:auto;display:inline-block;direction: ltr;">هزینه ارسال</div>
+            <div style="float:left">
+                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px">۱۰۰۰۰</div>
+                <div style="display:inline-block">تومان</div>
+            </div>
+
+        </div>
+        <div style="direction: rtl;text-align:right;margin:20px;">
+            <div style="width:auto;display:inline-block;direction: ltr;">تخفیف</div>
+            <div style="float:left">
+
+                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px">۰</div>
+                <div style="display:inline-block">تومان</div>
+            </div>
+
+
+        </div>
+        <hr />
+        <div style="direction: rtl;text-align:right;margin:20px;">
+            <div style="width:auto;display:inline-block;direction: ltr;">جمع کل</div>
+            <div style="float:left">
+                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px">۴۰۰۰۰</div>
+                <div style="display:inline-block">تومان</div>
+            </div>
+
+        </div>
+
         <button id="submit-btn">ثبت و پرداخت فاکتور</button>
     </div>
-
+    <div style="width:100%;text-align:center;margin-top:100px;display:none" id="empty">
+        <img src="~/Images/empty.png" style="width:150px;height:150px" />
+        <span style="display:block;margin-top:20px;direction:rtl">سبد خرید شما خالی‌ست!</span>
+    </div>
 </body>
 <script type="text/javascript" src="~/scripts/cart/cart-index.js"></script>
