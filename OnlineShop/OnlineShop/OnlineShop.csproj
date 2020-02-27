@@ -253,6 +253,30 @@
     <Compile Include="Migrations\202002221814158_InvoiceSumIsAddedToTable.designer.cs">
       <DependentUpon>202002221814158_InvoiceSumIsAddedToTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002271515390_ImageIsRemovedFromItem.cs" />
+    <Compile Include="Migrations\202002271515390_ImageIsRemovedFromItem.designer.cs">
+      <DependentUpon>202002271515390_ImageIsRemovedFromItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002271531345_ItemIdIsAddedToImage.cs" />
+    <Compile Include="Migrations\202002271531345_ItemIdIsAddedToImage.designer.cs">
+      <DependentUpon>202002271531345_ItemIdIsAddedToImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002271537568_DeleteAllImages.cs" />
+    <Compile Include="Migrations\202002271537568_DeleteAllImages.designer.cs">
+      <DependentUpon>202002271537568_DeleteAllImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002271548109_Add2Colors.cs" />
+    <Compile Include="Migrations\202002271548109_Add2Colors.designer.cs">
+      <DependentUpon>202002271548109_Add2Colors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002271601434_DeleteAllItemsAndInvoices.cs" />
+    <Compile Include="Migrations\202002271601434_DeleteAllItemsAndInvoices.designer.cs">
+      <DependentUpon>202002271601434_DeleteAllItemsAndInvoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002271625136_NewSkirtsAreAdded.cs" />
+    <Compile Include="Migrations\202002271625136_NewSkirtsAreAdded.designer.cs">
+      <DependentUpon>202002271625136_NewSkirtsAreAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -529,6 +553,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002221814158_InvoiceSumIsAddedToTable.resx">
       <DependentUpon>202002221814158_InvoiceSumIsAddedToTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271515390_ImageIsRemovedFromItem.resx">
+      <DependentUpon>202002271515390_ImageIsRemovedFromItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271531345_ItemIdIsAddedToImage.resx">
+      <DependentUpon>202002271531345_ItemIdIsAddedToImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271537568_DeleteAllImages.resx">
+      <DependentUpon>202002271537568_DeleteAllImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271548109_Add2Colors.resx">
+      <DependentUpon>202002271548109_Add2Colors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271601434_DeleteAllItemsAndInvoices.resx">
+      <DependentUpon>202002271601434_DeleteAllItemsAndInvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271625136_NewSkirtsAreAdded.resx">
+      <DependentUpon>202002271625136_NewSkirtsAreAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

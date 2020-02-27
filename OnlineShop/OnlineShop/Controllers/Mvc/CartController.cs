@@ -35,7 +35,7 @@ namespace OnlineShop.Controllers.Mvc
                     Color = x.Item.Color.Title,
                     Title = x.Item.Title,
                     Count = x.Count,
-                    ImageLink = x.Item.Image.Link,
+                   // ImageLink = x.Item.Image.Link,
                     Id = x.ItemId,
                     EachPrice = x.EachItemPrice,
                     TotalPrice = x.TotalPrice
@@ -43,7 +43,7 @@ namespace OnlineShop.Controllers.Mvc
                 return View(list);
             }
         }
-
+        [CustomAuthorize]
         [HttpPost]
         public async Task<ActionResult> Add(int id)
         {
@@ -97,6 +97,7 @@ namespace OnlineShop.Controllers.Mvc
             return null;
         }
 
+        [CustomAuthorize]
         [HttpGet]
         public async Task<ActionResult> Count()
         {
@@ -108,6 +109,7 @@ namespace OnlineShop.Controllers.Mvc
             }
         }
 
+        [CustomAuthorize]
         [HttpGet]
         public async Task<ActionResult> ItemCount()
         {
@@ -119,6 +121,7 @@ namespace OnlineShop.Controllers.Mvc
             }
         }
 
+        [CustomAuthorize]
         [HttpPost]
         public async Task<ActionResult> Remove(int id)
         {
@@ -144,6 +147,7 @@ namespace OnlineShop.Controllers.Mvc
             return null;
         }
 
+        [CustomAuthorize]
         [HttpGet]
         public async Task<ActionResult> FactorInfo()
         {
@@ -161,6 +165,7 @@ namespace OnlineShop.Controllers.Mvc
             }
         }
 
+        [CustomAuthorize]
         [HttpPost]
         public async Task Trash(int id)
         {

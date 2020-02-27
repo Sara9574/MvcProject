@@ -21,7 +21,7 @@ namespace OnlineShop.Controllers.Mvc
                     Color = x.Color.Title,
                     Description = x.Desciption,
                     Title = x.Title,
-                    Link = x.Image.Link,
+                   // Link = x.Image.Link,
                     Price = x.Price,
                     SubCatTitle = x.SubCategory.Title,
                     Id = x.Id

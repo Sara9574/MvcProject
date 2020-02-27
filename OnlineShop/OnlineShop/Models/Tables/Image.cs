@@ -11,5 +11,9 @@ namespace OnlineShop.Models.Tables
     {
         public int Id { get; set; }
         public string Link { get; set; }
+        public int? ItemId { get; set; }
+        [ForeignKey(nameof(ItemId))]
+        public Item Item { get; set; }
+        public bool? IsMain { get; set; }
     }
 }

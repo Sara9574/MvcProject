@@ -46,8 +46,6 @@ $(document).ready(function () {
         }).fail(function () {
             alert("error");
         }).always(function () {
-            //$(this).closest('div').parent().css("background-color", "red");
-            //$(this).parent().closest(".fa-trash-o").css("color", "red");
             icon.closest('div').parent().remove();
             $.get("/cart/Count", function (data, status) {
                 if (data > 0) {
