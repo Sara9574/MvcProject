@@ -38,7 +38,7 @@ $(document).ready(function () {
 
     $(".fa-trash-o").on("click", function () {
         itemId = $(this).closest('div').parent().find(".add-btn").val();
-
+        var icon = $(this);
         $.ajax({
             type: "POST",
             url: '/cart/trash',
@@ -46,8 +46,9 @@ $(document).ready(function () {
         }).fail(function () {
             alert("error");
         }).always(function () {
-
-            $(".fa-trash-o").closest('div').parent().parent().find(".item-wrapper").remove();
+            //$(this).closest('div').parent().css("background-color", "red");
+            //$(this).parent().closest(".fa-trash-o").css("color", "red");
+            icon.closest('div').parent().remove();
             $.get("/cart/Count", function (data, status) {
                 if (data > 0) {
                     $("#cart-count").addClass("cart-count");
