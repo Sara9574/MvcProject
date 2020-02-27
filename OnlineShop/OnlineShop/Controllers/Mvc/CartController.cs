@@ -19,10 +19,10 @@ namespace OnlineShop.Controllers.Mvc
             using (var db = new OnlineShopDbContext())
             {
                 var invoice = await db.Invoices.FindAsync(id);
-                invoice.InvoiceSum = await db.InvoiceItems.Where(x => x.InvoiceId == id).SumAsync(x => x.TotalPrice);
+                invoice.InvoiceSum = await db.InvoiceItems.Where(x => x.InvoiceId == id).Select(x => x.TotalPrice).DefaultIfEmpty(0).SumAsync(x => x);
                 await db.SaveChangesAsync();
             }
-        } 
+        }
         // GET: Cart
         [HttpGet]
         [CustomAuthorize]
@@ -150,13 +150,27 @@ namespace OnlineShop.Controllers.Mvc
             using (var db = new OnlineShopDbContext())
             {
                 var invoice = await db.Invoices.Where(x => x.UserId == CurrentUserId && x.InvoiceStateId == 1).FirstOrDefaultAsync();
-                FactorInfoViewModel factorInfo = new FactorInfoViewModel() {
+                FactorInfoViewModel factorInfo = new FactorInfoViewModel()
+                {
                     Delivery = 10000,
                     Discount = 0,
                     Total = invoice.InvoiceSum,
-                    Sum = 10000+ invoice.InvoiceSum
+                    Sum = 10000 + invoice.InvoiceSum
                 };
                 return Json(factorInfo, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public async Task Trash(int id)
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var invoiceItem = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId && x.ItemId == id).FirstOrDefaultAsync();
+                var invoiceId = invoiceItem.InvoiceId;
+                db.InvoiceItems.Remove(invoiceItem);
+                await db.SaveChangesAsync();
+                await UpdatePrice(invoiceId);
             }
         }
     }

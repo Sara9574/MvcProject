@@ -111,6 +111,9 @@
             padding: 3px 10px;
             font-size: 14px;
         }
+        .fa-trash-o:hover{
+            cursor:pointer;
+        }
     </style>
 
 
@@ -124,7 +127,7 @@
         {
 
             <div id="item-wrapper">
-                <img src=@item.ImageLink style="width:100px;height:100px; float:right;margin:20px 40px" />
+                <a href="/item/details/@item.Id"><img src=@item.ImageLink style="width:100px;height:100px; float:right;margin:20px 40px" /></a>
                 <div style="float:right;margin:20px;width:auto;text-align:right">
                     <div style="font-weight:600;font-size:15px">@item.Title</div>
                     <div style="font-size:14px;margin-top:5px"> رنگ: @item.Color</div>
