@@ -1,4 +1,14 @@
 ﻿$(document).ready(function () {
+
+    $.get("/cart/FactorInfo", function (data, status) {
+        console.log(data);
+        $("#total").text(data.Total);
+        $("#sum").text(data.Sum);
+        $("#discount").text(data.Discount);
+        $("#delivery").text(data.delivery);
+    })
+
+
     if ($("#item-wrapper").length != 0) {
         $(".factor").show();
     }

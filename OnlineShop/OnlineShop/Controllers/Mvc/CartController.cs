@@ -14,6 +14,15 @@ namespace OnlineShop.Controllers.Mvc
 {
     public class CartController : CustomBaseController
     {
+        public async Task UpdatePrice(int id)
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var invoice = await db.Invoices.FindAsync(id);
+                invoice.InvoiceSum = await db.InvoiceItems.Where(x => x.InvoiceId == id).SumAsync(x => x.TotalPrice);
+                await db.SaveChangesAsync();
+            }
+        } 
         // GET: Cart
         [HttpGet]
         [CustomAuthorize]
@@ -83,6 +92,7 @@ namespace OnlineShop.Controllers.Mvc
                     db.InvoiceItems.Add(invoiceItem);
                     await db.SaveChangesAsync();
                 }
+                await UpdatePrice(invoiceId);
             }
             return null;
         }
@@ -129,8 +139,25 @@ namespace OnlineShop.Controllers.Mvc
                     db.InvoiceItems.Remove(invoiceItem);
                     await db.SaveChangesAsync();
                 }
+                await UpdatePrice(currentInvoiceItems.Select(x => x.InvoiceId).FirstOrDefault());
             }
             return null;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> FactorInfo()
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var invoice = await db.Invoices.Where(x => x.UserId == CurrentUserId && x.InvoiceStateId == 1).FirstOrDefaultAsync();
+                FactorInfoViewModel factorInfo = new FactorInfoViewModel() {
+                    Delivery = 10000,
+                    Discount = 0,
+                    Total = invoice.InvoiceSum,
+                    Sum = 10000+ invoice.InvoiceSum
+                };
+                return Json(factorInfo, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

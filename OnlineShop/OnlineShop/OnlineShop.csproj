@@ -269,6 +269,7 @@
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CreateUserViewModel.cs" />
+    <Compile Include="ViewModels\FactorInfoViewModel.cs" />
     <Compile Include="ViewModels\ItemCountViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
