@@ -35,10 +35,10 @@ namespace OnlineShop.Controllers.Mvc
                     Color = x.Item.Color.Title,
                     Title = x.Item.Title,
                     Count = x.Count,
-                   // ImageLink = x.Item.Image.Link,
+                    ImageLink = db.Images.Where(y => y.ItemId == x.ItemId && y.IsMain == true).Select(y => y.Link).FirstOrDefault(),
                     Id = x.ItemId,
                     EachPrice = x.EachItemPrice,
-                    TotalPrice = x.TotalPrice
+                    TotalPrice = x.TotalPrice,
                 }).ToListAsync();
                 return View(list);
             }

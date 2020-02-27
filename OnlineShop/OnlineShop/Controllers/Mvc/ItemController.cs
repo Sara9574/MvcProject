@@ -21,10 +21,11 @@ namespace OnlineShop.Controllers.Mvc
                     Color = x.Color.Title,
                     Description = x.Desciption,
                     Title = x.Title,
-                   // Link = x.Image.Link,
+                    Link = db.Images.Where(y => y.ItemId == x.Id && y.IsMain == true).Select(y => y.Link).FirstOrDefault(),
                     Price = x.Price,
                     SubCatTitle = x.SubCategory.Title,
-                    Id = x.Id
+                    Id = x.Id,
+                    OtherImages = db.Images.Where(y => y.ItemId == x.Id && y.IsMain != true).Select(y => y.Link).ToList()
                 }).FirstOrDefault();
                 return View(item);
             }

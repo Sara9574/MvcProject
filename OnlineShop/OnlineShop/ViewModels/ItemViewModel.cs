@@ -15,5 +15,6 @@ namespace OnlineShop.ViewModels
         public string Color { get; set; }
         public string Link { get; set; }
         public int Price { get; set; }
+        public List<string> OtherImages{ get; set; }
     }
 }

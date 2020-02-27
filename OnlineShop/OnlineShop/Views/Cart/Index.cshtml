@@ -66,7 +66,6 @@
             width: 100%;
             margin: 10px 70px;
             float: right;
-            height: 150px;
             text-align: center;
             border-radius: 10px;
             background-color: white;
@@ -129,7 +128,7 @@
         {
 
             <div class="item-wrapper" id="item-wrapper">
-                <a href="/item/details/@item.Id"><img src=@item.ImageLink style="width:100px;height:100px; float:right;margin:20px 40px" /></a>
+                <a href="/item/details/@item.Id"><img src=@item.ImageLink style="width:80px;height:130px; float:right;margin:10px 30px;border-radius:2px" /></a>
                 <div style="float:right;margin:20px;width:auto;text-align:right">
                     <div style="font-weight:600;font-size:15px">@item.Title</div>
                     <div style="font-size:14px;margin-top:5px"> رنگ: @item.Color</div>
@@ -138,7 +137,7 @@
                 </div>
 
 
-                <div style="width:auto;margin:30px;float:left">
+                <div style="width:auto;margin:30px 0 10px 30px;float:left">
                     <i class="fa fa-trash-o" title="حذف" style="margin-right:20px;font-size:20px;color:#3c3c3c;"></i>
                     <button class="btn remove-btn" value="@item.Id">-</button>
                     <span id="count">@item.Count</span>
