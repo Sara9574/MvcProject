@@ -72,10 +72,6 @@
             background-color: white;
         }
 
-            #item-wrapper:hover {
-                background-color: #f7f7f7
-            }
-
         #items {
             float: right;
             width: 55%;
@@ -131,8 +127,9 @@
                 <img src=@item.ImageLink style="width:100px;height:100px; float:right;margin:20px 40px" />
                 <div style="float:right;margin:20px;width:auto;text-align:right">
                     <div style="font-weight:600;font-size:15px">@item.Title</div>
-                    <div> رنگ: @item.Color</div>
-                    <div> M :سایز</div>
+                    <div style="font-size:14px;margin-top:5px"> رنگ: @item.Color</div>
+                    <div style="font-size:14px;margin:5px 0"> M :سایز</div>
+                    <div style="font-size:14px; font-family:IRANSansFaNum;text-align:right;direction:rtl"> قیمت واحد: <label  id="each-price">@item.EachPrice</label>  <label style="font-size:12px">تومان</label></div>
                 </div>
 
 
@@ -141,7 +138,7 @@
                     <button class="btn remove-btn" value="@item.Id">-</button>
                     <span id="count">@item.Count</span>
                     <button class="btn add-btn" value="@item.Id">+</button>
-                    <div style="font-size:15px; margin-top:40px; font-family:IRANSansFaNum;text-align:right"> <label style="font-size:13px">تومان</label> @item.TotalPrice </div>
+                    <div style="font-size:14px;margin-top:40px; font-family:IRANSansFaNum;text-align:right;direction:rtl"> قیمت کل: <label id="total-price">@item.TotalPrice</label>  <label style="font-size:12px">تومان</label></div>
                 </div>
 
             </div>
@@ -153,19 +150,14 @@
         <div style="direction: rtl;text-align:right;margin:20px;">
             <div style="width:auto;display:inline-block;direction: ltr;">قیمت اقلام</div>
             <div style="float:left">
-
-                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px" id="total">۴۰۰۰۰</div>
+                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px" id="total"></div>
                 <div style="display:inline-block">تومان</div>
             </div>
-
-
         </div>
-
-
         <div style="direction: rtl;text-align:right;margin:20px;">
             <div style="width:auto;display:inline-block;direction: ltr;">هزینه ارسال</div>
             <div style="float:left">
-                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px" id="delivery">۱۰۰۰۰</div>
+                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px" id="delivery"></div>
                 <div style="display:inline-block">تومان</div>
             </div>
 
@@ -174,17 +166,16 @@
             <div style="width:auto;display:inline-block;direction: ltr;">تخفیف</div>
             <div style="float:left">
 
-                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px" id="discount">۰</div>
+                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px" id="discount"></div>
                 <div style="display:inline-block">تومان</div>
             </div>
-
 
         </div>
         <hr />
         <div style="direction: rtl;text-align:right;margin:20px;">
             <div style="width:auto;display:inline-block;direction: ltr;" >جمع کل</div>
             <div style="float:left">
-                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px" id="sum">۴۰۰۰۰</div>
+                <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px" id="sum"></div>
                 <div style="display:inline-block">تومان</div>
             </div>
 
