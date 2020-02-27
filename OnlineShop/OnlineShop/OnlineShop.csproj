@@ -277,6 +277,10 @@
     <Compile Include="Migrations\202002271625136_NewSkirtsAreAdded.designer.cs">
       <DependentUpon>202002271625136_NewSkirtsAreAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002271708435_NewSkirtsImagesAreAdded.cs" />
+    <Compile Include="Migrations\202002271708435_NewSkirtsImagesAreAdded.designer.cs">
+      <DependentUpon>202002271708435_NewSkirtsImagesAreAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -571,6 +575,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002271625136_NewSkirtsAreAdded.resx">
       <DependentUpon>202002271625136_NewSkirtsAreAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271708435_NewSkirtsImagesAreAdded.resx">
+      <DependentUpon>202002271708435_NewSkirtsImagesAreAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
