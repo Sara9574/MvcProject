@@ -1,70 +1,104 @@
 ﻿@{
     ViewBag.Title = "Signup";
+    Layout = "/views/shared/SharedLayout.cshtml";
 }
 <head>
     <script src="~/scripts/jquery-3.4.1.min.js"></script>
+
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
     <style>
+
         input[type=text],
         input[type=password] {
             width: 100%;
-            padding: 12px 20px;
-            margin: 8px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            border-radius: 5px
+            flex-grow: 1;
+            border-radius: 5px;
+            font-family: IRANSans;
+            direction: rtl;
+            border: 1px solid #f7f7f7;
+            box-shadow: 2px 2px 4px -2px grey;
         }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
+        .input-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            min-width: 50px;
+            text-align: center;
+            padding: 12px;
+            margin: 4px 0px;
+            color: rgba(221, 25, 79, 0.92);
+        }
+
+
+        #submit {
+            padding: 5px;
             margin: 8px 0;
-            border: none;
             cursor: pointer;
-            width: auto;
-            border-radius: 5px
+            border-radius: 5px;
+            width: 90%;
+            color: #fafafa;
+            border-radius: 5px;
+            font-family: IRANSans;
+            background-color: rgba(221, 25, 79, 0.92);
+            box-shadow: 3px 3px 8px -4px grey;
         }
 
-            button:hover {
-                opacity: 0.8;
-            }
+        #submit-row {
+            display: flex;
+            justify-content: center;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
 
         .cancelbtn {
             width: auto;
             padding: 10px 18px;
-            background-color: #f44336;
+            color: rgba(221, 25, 79, 0.92);
         }
 
 
         .container {
             padding: 16px;
+            display: flex;
+            justify-content: space-around;
         }
 
         #outer-div {
             width: 100%;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         #inner-div {
-            display: inline-block;
+            width: 400px;
             margin: 0 auto;
-            padding: 3px;
-            border: 3px solid #f1f1f1;
-            direction: rtl;
+            padding: 7px;
+            margin-top: 30px;
+            box-shadow: 3px 3px 30px -10px grey;
+            border: 1px solid #f7f7f7;
+            border-radius: 10px;
             font-family: IRANSans;
-            border-radius: 5px
         }
 
         label {
-            margin: 20px 8px 0 8px
+            margin: 20px 8px 0 8px;
+            font-weight: normal;
         }
 
         h3 {
             font-family: IRANSans;
-            margin-bottom: 30px
+            margin-bottom: 30px;
         }
     </style>
+
 </head>
 
 
@@ -74,40 +108,54 @@
         <div id="outer-div" width="100%">
 
             <div id="inner-div">
+                <form id="signupForm">
 
-
-                <h3>ثبت نام کاربر</h3>
-
-                <div class="row">
-                    <label class="col-sm-3"><b>ایمیل</b></label>
-                    <div class="col-sm-8">
-                        <input id="email" type="text" name="email" required>
+                    <h3 style="margin-top:10px;font-weight:normal;font-size:large;">ثبت نام</h3>
+                    <hr />
+                    <div class="input-row">
+                        <input id="fullname" type="text" name="fullname" required dir="rtl" placeholder=" نام کاربری">
+                        <i class="fa fa-user icon"></i>
                     </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-3"><b>نام کامل</b></label>
-                    <div class="col-sm-8">
-                        <input id="fullname" type="text" name="fullname" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-3"><b>شماره موبایل</b></label>
-                    <div class="col-sm-8">
-                        <input id="mobile" type="text" name="mobile" required>
-                    </div>
-                </div>
-                <div class="row">
 
-                    <label class="col-sm-3"><b>رمز عبور</b></label>
-                    <div class="col-sm-8">
-                        <input id="password" type="password" name="password" required>
+                    <div class="input-row">
+                        <!-- <label class="col-sm-3">ایمیل</label>-->
+                        <input id="email" type="text" name="email" required dir="rtl" placeholder=" پست الکترونیک">
+                        <i class="fa fa-envelope icon"></i>
+
                     </div>
-                </div>
 
-                <div class="container" style="background-color:#f1f1f1">
-                    <button id="submit">ثبت نام</button>
-                </div>
+                    <div class="input-row">
+                        <!-- <label class="col-sm-3">شماره موبایل</label>-->
 
+                        <input id="mobile" type="text" name="mobile" required dir="rtl" placeholder=" شماره همراه ">
+                        <i class="fa fa-phone icon"></i>
+
+
+                    </div>
+                    <div class="input-row">
+
+                        <!--<label class="col-sm-3">رمز عبور</label>-->
+
+                        <input id="password" type="password" name="password" required dir="rtl" placeholder=" رمز عبور">
+                        <i class="fa fa-key icon"></i>
+
+
+                    </div>
+                    <div class="input-row">
+
+
+                        <span><a href="#" style="color:#0000EE">قوانین و مقررات </a>را میپذیرم</span>
+                        <input style=" padding: 12px; margin: 8px; background-color:aqua" type="checkbox" checked="checked" name="remember">
+
+                    </div>
+                    <div class="input-row " id="submit-row">
+                        <button id="submit">ثبت نام</button>
+                        <!-- </div>
+                         <div class="container" style="background-color:#f1f1f1">
+                             <a class="cancelbtn">قبلا ثبت نام کرده ام</a>
+                             <span class="psw">فراموشی <a href="#" style="color:#0000EE">رمز عبور؟</a></span>
+                         </div>-->
+                </form>
             </div>
         </div>
     }
