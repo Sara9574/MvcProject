@@ -102,7 +102,7 @@
 
 
 <body>
-    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { ReturnUrl = Request.QueryString["ReturnUrl"] }))
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
     {
         <div id="outer-div" width="100%">
 
@@ -112,6 +112,7 @@
                     <h3 style="margin-top:10px;font-weight:normal;font-size:large;">ورود</h3>
                     <hr />
                     <div class="input-row">
+                        <input id="ReturnUrl"  name="ReturnUrl"  dir="rtl" value=@Request.QueryString["ReturnUrl"] hidden>
                         <!-- <label class="col-sm-3">ايميل</label>-->
                         <input id="email" type="text" name="email" required dir="rtl" placeholder=" ايميل خود را وارد نماييد">
                         <i class="fa fa-envelope icon"></i>
