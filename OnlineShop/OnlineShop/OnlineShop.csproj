@@ -293,6 +293,10 @@
     <Compile Include="Migrations\202003051907411_AddingAllWomenPants.designer.cs">
       <DependentUpon>202003051907411_AddingAllWomenPants.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003061945195_ItemColorTableIsAdded.cs" />
+    <Compile Include="Migrations\202003061945195_ItemColorTableIsAdded.designer.cs">
+      <DependentUpon>202003061945195_ItemColorTableIsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -303,6 +307,7 @@
     <Compile Include="Models\Tables\InvoiceItem.cs" />
     <Compile Include="Models\Tables\InvoiceState.cs" />
     <Compile Include="Models\Tables\Item.cs" />
+    <Compile Include="Models\Tables\ItemColor.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
     <Compile Include="Models\Tables\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -599,6 +604,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003051907411_AddingAllWomenPants.resx">
       <DependentUpon>202003051907411_AddingAllWomenPants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003061945195_ItemColorTableIsAdded.resx">
+      <DependentUpon>202003061945195_ItemColorTableIsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

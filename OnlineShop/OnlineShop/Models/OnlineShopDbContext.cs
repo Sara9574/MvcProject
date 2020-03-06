@@ -21,5 +21,6 @@ namespace OnlineShop.Models
         public DbSet<InvoiceState> InvoiceStates { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceItem> InvoiceItems { get; set; }
+        public DbSet<ItemColor> ItemColors { get; set; }
     }
 }
