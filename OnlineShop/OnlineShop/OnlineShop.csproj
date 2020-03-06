@@ -281,6 +281,18 @@
     <Compile Include="Migrations\202002271708435_NewSkirtsImagesAreAdded.designer.cs">
       <DependentUpon>202002271708435_NewSkirtsImagesAreAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003051716282_MantoIsRemoved.cs" />
+    <Compile Include="Migrations\202003051716282_MantoIsRemoved.designer.cs">
+      <DependentUpon>202003051716282_MantoIsRemoved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003051845495_InsertOnePantsItem.cs" />
+    <Compile Include="Migrations\202003051845495_InsertOnePantsItem.designer.cs">
+      <DependentUpon>202003051845495_InsertOnePantsItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003051907411_AddingAllWomenPants.cs" />
+    <Compile Include="Migrations\202003051907411_AddingAllWomenPants.designer.cs">
+      <DependentUpon>202003051907411_AddingAllWomenPants.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -578,6 +590,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002271708435_NewSkirtsImagesAreAdded.resx">
       <DependentUpon>202002271708435_NewSkirtsImagesAreAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051716282_MantoIsRemoved.resx">
+      <DependentUpon>202003051716282_MantoIsRemoved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051845495_InsertOnePantsItem.resx">
+      <DependentUpon>202003051845495_InsertOnePantsItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051907411_AddingAllWomenPants.resx">
+      <DependentUpon>202003051907411_AddingAllWomenPants.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

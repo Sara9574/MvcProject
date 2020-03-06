@@ -27,7 +27,7 @@ namespace OnlineShop.Controllers.Mvc
         [HttpPost]
         public async Task<ActionResult> Login(LoginViewModel model)
         {
-            string returnUrl = Request.Form["ReturnUrl"] == "" ? "/home/index" : Request.Form["ReturnUrl"];
+            string returnUrl = Request.Form["ReturnUrl"] == "" || Request.Form["ReturnUrl"] == null ? "/home/index" : Request.Form["ReturnUrl"];
             using (var db = new OnlineShopDbContext())
             {
                 var user = await db.Users.Where(x => x.Email == model.Email && x.Password == model.Password).FirstOrDefaultAsync();
