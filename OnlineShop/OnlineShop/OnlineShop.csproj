@@ -305,6 +305,14 @@
     <Compile Include="Migrations\202003071928589_ColorCodeValuesAreAdded.designer.cs">
       <DependentUpon>202003071928589_ColorCodeValuesAreAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003072002165_InsertRandomItemColor.cs" />
+    <Compile Include="Migrations\202003072002165_InsertRandomItemColor.designer.cs">
+      <DependentUpon>202003072002165_InsertRandomItemColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003072009002_ColorIdIsRemovedFromItem.cs" />
+    <Compile Include="Migrations\202003072009002_ColorIdIsRemovedFromItem.designer.cs">
+      <DependentUpon>202003072009002_ColorIdIsRemovedFromItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -621,6 +629,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003071928589_ColorCodeValuesAreAdded.resx">
       <DependentUpon>202003071928589_ColorCodeValuesAreAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003072002165_InsertRandomItemColor.resx">
+      <DependentUpon>202003072002165_InsertRandomItemColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003072009002_ColorIdIsRemovedFromItem.resx">
+      <DependentUpon>202003072009002_ColorIdIsRemovedFromItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
