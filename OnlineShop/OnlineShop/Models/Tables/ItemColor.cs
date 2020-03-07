@@ -16,6 +16,5 @@ namespace OnlineShop.Models.Tables
         public int ColorId { get; set; }
         [ForeignKey(nameof(ColorId))]
         public Color Color { get; set; }
-        public bool IsMain { get; set; }
     }
 }
