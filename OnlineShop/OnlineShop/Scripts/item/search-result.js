@@ -23,6 +23,12 @@ function addCommas(nStr) {
 
 $(document).ready(function () {
     let title = decodeURIComponent(GetURLParameter('q'));
+    if (count == 0) {
+        $("#title").hide();
+        $("#lbl-nothing").text(`نتیجه‌ای برای جستجوی "${title}" یافت نشد!`);
+        $("#nothing").show();
+    }
+   
     if (title) {
         $("#title").text(`"نتیجه جستجو "${title}`);
     }

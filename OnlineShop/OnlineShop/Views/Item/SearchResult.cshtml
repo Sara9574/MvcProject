@@ -116,7 +116,13 @@
         </div>
     </div>
 
-
+    <div style="width:100%;text-align:center;margin-top:100px;display:none" id="nothing">
+        <img src="~/Images/nothing-found.png" style="width:150px;height:150px" />
+        <span style="display:block;margin-top:20px;direction:rtl;font-family:IRANSans" id="lbl-nothing">جستجو فایده نداشت!</span>
+    </div>
 </body>
 
+<script>
+    var count = @Model.Count();
+</script>
 <script type="text/javascript" src="~/scripts/item/search-result.js"></script>
