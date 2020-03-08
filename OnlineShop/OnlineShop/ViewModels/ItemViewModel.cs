@@ -12,9 +12,15 @@ namespace OnlineShop.ViewModels
         public string CatTitle { get; set; }
         public string SubCatTitle { get; set; }
         public string Description { get; set; }
-        public string Color { get; set; }
+        public List<ColorViewModel> Colors { get; set; }
         public string Link { get; set; }
         public int Price { get; set; }
-        public List<string> OtherImages{ get; set; }
+        public List<string> OtherImages { get; set; }
+    }
+
+    public class ColorViewModel
+    {
+        public string Code { get; set; }
+        public string Title { get; set; }
     }
 }

@@ -17,18 +17,19 @@ namespace OnlineShop.Controllers.Mvc
         {
             using (var db = new OnlineShopDbContext())
             {
-                var result = await db.Items.Where(x => x.SubCategoryId == id).Select(x => new ItemViewModel {
+                var result = await db.Items.Where(x => x.SubCategoryId == id).Select(x => new ItemViewModel
+                {
                     CatTitle = x.SubCategory.Category.Title,
-                    //Color = x.Color.Title,
+                    Colors = db.ItemColors.Where(y => y.ItemId == x.Id).Select(y => new ColorViewModel { Code = y.Color.ColorCode, Title = y.Color.Title }).ToList(),
                     Description = x.Desciption,
                     Title = x.Title,
-                    Link = db.Images.Where(y=>y.ItemId == x.Id && y.IsMain== true).Select(y=>y.Link).FirstOrDefault(),
+                    Link = db.Images.Where(y => y.ItemId == x.Id && y.IsMain == true).Select(y => y.Link).FirstOrDefault(),
                     Price = x.Price,
                     SubCatTitle = x.SubCategory.Title,
                     Id = x.Id
                 }).ToListAsync();
                 return View(result);
-            } 
+            }
         }
     }
 }
