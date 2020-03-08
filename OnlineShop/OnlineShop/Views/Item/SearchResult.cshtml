@@ -1,0 +1,122 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.ItemViewModel>
+
+@{
+    Layout = "/views/shared/SharedLayout.cshtml";
+}
+
+<head>
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>نتیجه جستجو</title>
+    <style>
+        .lbl {
+            font-size: 12px;
+        }
+
+        .add-btn {
+            padding: 1px 7px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 3px 3px 15px -6px grey;
+            background-color: #fafafa;
+        }
+
+            .add-btn:hover {
+                background-color: #cfffcd !important;
+            }
+
+        .remove-btn {
+            padding: 1px 9px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 3px 3px 15px -6px grey;
+            background-color: #fafafa
+        }
+
+            .remove-btn:hover {
+                background-color: #ffcdcd !important;
+            }
+
+        #count {
+            background-color: #e5e5e5;
+            padding: 1px 7px;
+            border-radius: 3px;
+            box-shadow: 1px 3px 15px -6px grey;
+            font-size: 13px;
+        }
+
+            #count:hover {
+                cursor: default;
+            }
+
+        .btn-details {
+            font-size: 11px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 1px 1px 8px -4px grey;
+            background-color: #fafafa;
+            margin-bottom: 5px
+        }
+
+        .item-wrapper {
+            box-shadow: 2px 6px 20px -12px grey;
+            border: 1px solid #f7f7f7;
+            width: 230px;
+            margin: 10px;
+            float: right;
+            height: 440px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: white;
+            display: none;
+        }
+
+            .item-wrapper:hover {
+                background-color: #f7f7f7
+            }
+
+        #items {
+            font-family: IRANSans;
+            margin: 0 auto;
+            display: inline-block;
+            width: 97%;
+        }
+
+        .color {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+
+            .color:hover {
+                cursor: default
+            }
+    </style>
+</head>
+<body style="background-color:#f7f7f7">
+    <h3 style="float:right;font-family:IRANSans;margin:20px" id="title">
+        نتیجه جستجو
+    </h3>
+    <div style="width:100%">
+        <div id="items">
+            @foreach (var item in Model)
+            {
+                <a href="/item/details/@item.Id">
+                    <div class="item-wrapper">
+                        <img src=@item.Link style="width:220px;height:320px;margin-top:5px;border-radius: 3px;" />
+                        <hr />
+
+                        <div style="font-weight:600;font-size:14px;color:dimgrey">@item.Title</div>
+                        <div style="font-size:12px;margin:5px 0 0 0;color:dimgrey"> تومان <label class="each-price"> @item.Price </label>  </div>
+                        @foreach (var color in item.Colors)
+                        {
+                            <span style="background-color: @color.Code" title="@color.Title" class="color"></span>
+                        }
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+
+
+</body>
+
+<script type="text/javascript" src="~/scripts/item/search-result.js"></script>
