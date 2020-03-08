@@ -14,7 +14,6 @@
         }
 
        .productHead {
-        
             display: flex;
             align-items: flex-end;
             flex-direction: column;
@@ -160,8 +159,7 @@
         }
 
         #productid > label {
-            font-size: x-small;
-            color: rgb(139, 139, 139);
+           
         }
 
         #productid {
@@ -271,7 +269,7 @@
 
                 <div class="details-item productHead">
                     <div id="head-row"><h2 style="color:black">@Html.DisplayFor(model => model.Title)</h2><i class="fa fa-share-alt fa-2x"></i> </div>
-                    <div class="value "><div>MANGO</div><label> از برند</label></div>
+                    <div class="value "><div>MANGO</div><label>از برند </label></div>
                     
                    <!-- <div>
                         @for (int i = 0; i < 5; i++)
@@ -387,10 +385,10 @@
     </div>
 </body>
 
-<scrpt>
+<scirpt>
     var e = document.getElementById("sizes");
     var ptoductSize= e.options[e.selectedIndex].value;
     document.getElementById("size-value")=productSize;
-</scrpt>
+</scirpt>
 
 </html>
