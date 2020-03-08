@@ -9,5 +9,6 @@ namespace OnlineShop.Models.Tables
     [Table(nameof(Color))]
     public class Color : BaseLookUpTable
     {
+        public string ColorCode { get; set; }
     }
 }

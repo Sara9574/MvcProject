@@ -293,6 +293,26 @@
     <Compile Include="Migrations\202003051907411_AddingAllWomenPants.designer.cs">
       <DependentUpon>202003051907411_AddingAllWomenPants.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003061945195_ItemColorTableIsAdded.cs" />
+    <Compile Include="Migrations\202003061945195_ItemColorTableIsAdded.designer.cs">
+      <DependentUpon>202003061945195_ItemColorTableIsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003071927165_ColorCodeIsAddedToColor.cs" />
+    <Compile Include="Migrations\202003071927165_ColorCodeIsAddedToColor.designer.cs">
+      <DependentUpon>202003071927165_ColorCodeIsAddedToColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003071928589_ColorCodeValuesAreAdded.cs" />
+    <Compile Include="Migrations\202003071928589_ColorCodeValuesAreAdded.designer.cs">
+      <DependentUpon>202003071928589_ColorCodeValuesAreAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003072002165_InsertRandomItemColor.cs" />
+    <Compile Include="Migrations\202003072002165_InsertRandomItemColor.designer.cs">
+      <DependentUpon>202003072002165_InsertRandomItemColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003072009002_ColorIdIsRemovedFromItem.cs" />
+    <Compile Include="Migrations\202003072009002_ColorIdIsRemovedFromItem.designer.cs">
+      <DependentUpon>202003072009002_ColorIdIsRemovedFromItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -303,6 +323,7 @@
     <Compile Include="Models\Tables\InvoiceItem.cs" />
     <Compile Include="Models\Tables\InvoiceState.cs" />
     <Compile Include="Models\Tables\Item.cs" />
+    <Compile Include="Models\Tables\ItemColor.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
     <Compile Include="Models\Tables\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -599,6 +620,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003051907411_AddingAllWomenPants.resx">
       <DependentUpon>202003051907411_AddingAllWomenPants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003061945195_ItemColorTableIsAdded.resx">
+      <DependentUpon>202003061945195_ItemColorTableIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003071927165_ColorCodeIsAddedToColor.resx">
+      <DependentUpon>202003071927165_ColorCodeIsAddedToColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003071928589_ColorCodeValuesAreAdded.resx">
+      <DependentUpon>202003071928589_ColorCodeValuesAreAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003072002165_InsertRandomItemColor.resx">
+      <DependentUpon>202003072002165_InsertRandomItemColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003072009002_ColorIdIsRemovedFromItem.resx">
+      <DependentUpon>202003072009002_ColorIdIsRemovedFromItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

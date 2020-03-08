@@ -60,11 +60,11 @@
             width: 230px;
             margin: 10px;
             float: right;
-            height: 420px;
+            height: 440px;
             text-align: center;
             border-radius: 10px;
             background-color: white;
-            display:none;
+            display: none;
         }
 
             .item-wrapper:hover {
@@ -73,13 +73,24 @@
 
         #items {
             font-family: IRANSans;
-            margin:0 auto;
-            display:inline-block;
-            width:97%;
+            margin: 0 auto;
+            display: inline-block;
+            width: 97%;
         }
+
+        .color {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+
+            .color:hover {
+                cursor: default
+            }
     </style>
 </head>
-<body style="background-color:#f7f7f7" >
+<body style="background-color:#f7f7f7">
     <h3 style="float:right;font-family:IRANSans;margin:20px">
         @Model.FirstOrDefault().SubCatTitle  @Model.FirstOrDefault().CatTitle
     </h3>
@@ -91,14 +102,19 @@
                     <div class="item-wrapper">
                         <img src=@item.Link style="width:220px;height:320px;margin-top:5px;border-radius: 3px;" />
                         <hr />
+
                         <div style="font-weight:600;font-size:14px;color:dimgrey">@item.Title</div>
-                        <div style="font-size:12px;margin:5px 0;color:dimgrey"> تومان <label class="each-price"> @item.Price </label>  </div>
+                        <div style="font-size:12px;margin:5px 0 0 0;color:dimgrey"> تومان <label class="each-price"> @item.Price </label>  </div>
+                        @foreach (var color in item.Colors)
+                        {
+                            <span style="background-color: @color.Code" title="@color.Title" class="color"></span>
+                        }
                     </div>
                 </a>
             }
         </div>
     </div>
-    
+
 
 </body>
 

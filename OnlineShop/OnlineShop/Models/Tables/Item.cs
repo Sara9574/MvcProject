@@ -16,8 +16,5 @@ namespace OnlineShop.Models.Tables
         public int Price { get; set; }
         public string Title { get; set; }
         public string Desciption { get; set; }
-        public int ColorId { get; set; }
-        [ForeignKey(nameof(ColorId))]
-        public virtual Color Color { get; set; }
     }
 }

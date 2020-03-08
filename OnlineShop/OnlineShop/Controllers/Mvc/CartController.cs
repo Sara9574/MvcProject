@@ -32,7 +32,7 @@ namespace OnlineShop.Controllers.Mvc
             {
                 var list = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId && x.Invoice.InvoiceStateId == 1).Select(x => new CartViewModel()
                 {
-                    Color = x.Item.Color.Title,
+                    Color = db.ItemColors.Where(y => y.ItemId == x.ItemId).Select(y => y.Color.Title).FirstOrDefault(),
                     Title = x.Item.Title,
                     Count = x.Count,
                     ImageLink = db.Images.Where(y => y.ItemId == x.ItemId && y.IsMain == true).Select(y => y.Link).FirstOrDefault(),
