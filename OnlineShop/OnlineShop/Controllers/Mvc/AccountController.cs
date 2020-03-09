@@ -1,4 +1,5 @@
-﻿using OnlineShop.Filters;
+﻿using Newtonsoft.Json;
+using OnlineShop.Filters;
 using OnlineShop.Models;
 using OnlineShop.Models.Tables;
 using OnlineShop.ViewModels;
@@ -36,12 +37,13 @@ namespace OnlineShop.Controllers.Mvc
                     ViewBag.Error = "ایمیل یا رمز عبور اشتباه است.";
                     return null;
                 }
+                RoleViewModel roleModel = new RoleViewModel { RoleId = user.RoleId, UserId = user.Id };
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
                     user.Fullname,
                     DateTime.Now,
                     DateTime.Now.AddMinutes(30),
                     false,
-                    user.Id.ToString(),
+                    JsonConvert.SerializeObject(roleModel),
                     FormsAuthentication.FormsCookiePath);
                 string encTicket = FormsAuthentication.Encrypt(ticket);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
@@ -59,16 +61,18 @@ namespace OnlineShop.Controllers.Mvc
                     Email = model.Email,
                     Fullname = model.Fullname,
                     Password = model.Password,
-                    Mobile = model.Mobile
+                    Mobile = model.Mobile,
+                    RoleId = 1 //normal user
                 };
                 db.Users.Add(newUser);
                 await db.SaveChangesAsync();
+                RoleViewModel roleModel = new RoleViewModel { RoleId = 1, UserId = newUser.Id };
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
                    newUser.Fullname,
                    DateTime.Now,
                    DateTime.Now.AddMinutes(30),
                    false,
-                   newUser.Id.ToString(),
+                   JsonConvert.SerializeObject(roleModel),
                    FormsAuthentication.FormsCookiePath);
                 string encTicket = FormsAuthentication.Encrypt(ticket);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));

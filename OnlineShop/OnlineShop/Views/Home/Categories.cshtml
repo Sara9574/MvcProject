@@ -87,14 +87,15 @@
         font-size: 13px;
     }
 
-   .fixedheader {
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:100;
-}
-    #cart-icon:hover{
-        color:white
+    .fixedheader {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+    }
+
+    #cart-icon:hover {
+        color: white
     }
 </style>
 
@@ -137,8 +138,8 @@
             </ul>
 
             <form class="form-inline my-2 my-lg-0">
-                <input id="q-search"class="form-control mr-sm-2" type="search" placeholder="مثلا کفش" aria-label="Search">
-                <button id="btn-search"class="btn my-sm-0" style="margin-right:20px;border:3px;border-radius:5px;background-color:white">جستجو</button>
+                <input id="q-search" class="form-control mr-sm-2" type="search" placeholder="مثلا کفش" aria-label="Search">
+                <button id="btn-search" class="btn my-sm-0" style="margin-right:20px;border:3px;border-radius:5px;background-color:white">جستجو</button>
             </form>
             <div style="margin-right:auto;width:180px;color:#fff!important">
                 @if (!String.IsNullOrWhiteSpace(User.Identity.Name))
@@ -150,13 +151,18 @@
                 else
                 {
                     <a href="/account/login">ورود</a>
-                    <span>| @ViewBag.Test</span>
+                    <span>|</span>
                     <a href="/account/signup">ثبت نام</a>
                 }
-            <a href="/cart" id="cart-icon">
-                <i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 20px 0 0" ></i><span id="cart-count" style="display:none"></span>
-            </a>
+                <a href="/cart" id="cart-icon">
+                    <i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 20px 0 0"></i><span id="cart-count" style="display:none"></span>
+                </a>
+                @if (ViewBag.IsAdmin == true)
+                {
+                    <button>ورد به پنل کاربری</button>
+                }
             </div>
+          
         </div>
 
     </nav>

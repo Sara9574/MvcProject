@@ -1,4 +1,6 @@
-﻿using OnlineShop.Models.Tables;
+﻿using Newtonsoft.Json;
+using OnlineShop.Models.Tables;
+using OnlineShop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace OnlineShop.Controllers
     {
         public int CurrentUserId { get; set; }
         public string CurrentUserFullname { get; set; }
+        public int CurrentUserRoleId { get; set; }
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -20,7 +23,9 @@ namespace OnlineShop.Controllers
             {
                 var cookieItem = Request.Cookies[FormsAuthentication.FormsCookieName];
                 var ticket = FormsAuthentication.Decrypt(cookieItem.Value);
-                CurrentUserId = int.Parse(ticket.UserData);
+                var userData = JsonConvert.DeserializeObject<RoleViewModel>(ticket.UserData);
+                CurrentUserId = userData.UserId;
+                CurrentUserRoleId = userData.RoleId;
                 CurrentUserFullname = ticket.Name;
             }
         }

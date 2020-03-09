@@ -336,6 +336,7 @@
     <Compile Include="ViewModels\ItemCountViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RoleViewModel.cs" />
     <Compile Include="ViewModels\UserProfileResponseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
