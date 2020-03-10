@@ -1,0 +1,99 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Lato", sans-serif;
+            font-family:IRANSans
+        }
+
+        div#right-sidebar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #9c566c;
+        }
+
+
+        * html body {
+            overflow: hidden;
+        }
+
+        * html div#content {
+            height: 100%;
+            overflow: auto;
+        }
+
+        #right-sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+            text-align:right
+        }
+
+            #right-sidebar a.active {
+                background-color: #5f1a30;
+                color: white;
+            }
+
+            #right-sidebar a:hover:not(.active) {
+                background-color: #555;
+                color: white;
+            }
+
+        div.content {
+            margin-right: 200px;
+            padding: 1px 16px;
+        }
+
+        @@media screen and (max-width: 700px) {
+            #right-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+                #right-sidebar a {
+                    float: right;
+                }
+
+            div.content {
+                margin-left: 0;
+            }
+        }
+
+        @@media screen and (max-width: 400px) {
+            #right-sidebar a {
+                text-align: center;
+                float: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="right-sidebar">
+        <a class="active" href="#home">پنل ادمین</a>
+        <a href="#news">مدیریت کاربران</a>
+        <a href="#contact">مدیریت محصولات</a>
+        <a href="#about">نظرات</a>
+    </div>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

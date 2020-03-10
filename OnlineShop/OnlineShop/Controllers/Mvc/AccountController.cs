@@ -47,6 +47,10 @@ namespace OnlineShop.Controllers.Mvc
                     FormsAuthentication.FormsCookiePath);
                 string encTicket = FormsAuthentication.Encrypt(ticket);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+                if (user.RoleId == 2)
+                {
+                    returnUrl = "/admin/panel";
+                }
             }
             return Redirect(returnUrl);
         }
