@@ -82,10 +82,10 @@
 <body>
 
     <div id="right-sidebar">
-        <a class="active" href="/admin/panel">پنل ادمین</a>
-        <a  href="/admin/UserManagement">مدیریت کاربران</a>
-        <a href="#contact">مدیریت محصولات</a>
-        <a href="#about">نظرات</a>
+        <a id="panel" href="/admin/panel">پنل ادمین</a>
+        <a id="UserManagement" href="/admin/UserManagement">مدیریت کاربران</a>
+        <a id="products" href="/admin/products">مدیریت محصولات</a>
+        <a id="feedback" href="/admin/feedback">نظرات</a>
     </div>
 
     <div class="content">
@@ -97,3 +97,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<script type="text/javascript" src="~/scripts/sidebar.js"></script>
