@@ -17,5 +17,6 @@ namespace OnlineShop.Models.Tables
         public int RoleId { get; set; }
         [ForeignKey(nameof(RoleId))]
         public Role Role { get; set; }
+        public bool IsVerified { get; set; }
     }
 }

@@ -315,6 +315,10 @@
     <Compile Include="Migrations\202003091758008_RoleIdIsAddedToUser.designer.cs">
       <DependentUpon>202003091758008_RoleIdIsAddedToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003111825561_IsVerifiedIsAddedToUser.cs" />
+    <Compile Include="Migrations\202003111825561_IsVerifiedIsAddedToUser.designer.cs">
+      <DependentUpon>202003111825561_IsVerifiedIsAddedToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -638,6 +642,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003091758008_RoleIdIsAddedToUser.resx">
       <DependentUpon>202003091758008_RoleIdIsAddedToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111825561_IsVerifiedIsAddedToUser.resx">
+      <DependentUpon>202003111825561_IsVerifiedIsAddedToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

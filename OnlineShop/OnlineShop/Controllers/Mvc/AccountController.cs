@@ -34,8 +34,13 @@ namespace OnlineShop.Controllers.Mvc
                 var user = await db.Users.Where(x => x.Email == model.Email && x.Password == model.Password).FirstOrDefaultAsync();
                 if (user == null)
                 {
-                    ViewBag.Error = "ایمیل یا رمز عبور اشتباه است.";
-                    return null;
+                    ViewBag.Error = "ایمیل یا رمز عبور اشتباه است!";
+                    return View();
+                }
+                if(!user.IsVerified)
+                {
+                    ViewBag.Error = "حساب کاربری شما هنوز تایید نشده!";
+                    return View();
                 }
                 RoleViewModel roleModel = new RoleViewModel { RoleId = user.RoleId, UserId = user.Id };
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
@@ -67,6 +72,8 @@ namespace OnlineShop.Controllers.Mvc
                     Password = model.Password,
                     Mobile = model.Mobile,
                     RoleId = 1 //normal user
+                    ,
+                    IsVerified = false
                 };
                 db.Users.Add(newUser);
                 await db.SaveChangesAsync();
