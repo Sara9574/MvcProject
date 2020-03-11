@@ -22,5 +22,13 @@ namespace OnlineShop.Controllers.Mvc
                 return View(model);
             }
         }
+        public ActionResult UserManagement()
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var list = db.Users.Where(x => x.IsVerified == false).ToList();
+                return View(list);
+            }
+        }
     }
 }
