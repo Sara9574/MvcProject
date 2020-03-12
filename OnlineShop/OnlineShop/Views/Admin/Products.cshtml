@@ -1,0 +1,73 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.ProductViewModel>
+
+@{
+    Layout = "~/Views/Shared/Sidebar.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Products</title>
+    <style>
+        th, td {
+            padding: 10px;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+
+    <table class="table-bordered" style="direction:rtl;width:100%;margin:20px 0">
+        <tr>
+            <th>
+                کد محصول
+            </th>
+            <th>
+                تصویر
+            </th>
+            <th>
+                دسته بندی
+            </th>
+            <th>
+                قیمت
+            </th>
+            <th>
+                عنوان
+            </th>
+            <th>
+                نمایش در سایت
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    <a href="@item.Link">
+                        <img src="@item.Link" style="width:42px;height:65px; border-radius:2px" />
+                    </a>
+                </td>
+                <td>
+                    @item.Category-@item.SubCat
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.ShowOnSite
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

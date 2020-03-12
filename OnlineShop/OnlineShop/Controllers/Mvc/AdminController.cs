@@ -30,5 +30,23 @@ namespace OnlineShop.Controllers.Mvc
                 return View(list);
             }
         }
+
+        public ActionResult Products()
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var list = db.Items.Select(x => new ProductViewModel
+                {
+                    Category = x.SubCategory.Category.Title,
+                    Link = db.Images.Where(y => y.ItemId == x.Id && y.IsMain == true).Select(y => y.Link).FirstOrDefault(),
+                    Price = x.Price,
+                    SubCat = x.SubCategory.Title,
+                    Title = x.Title,
+                    ShowOnSite = x.ShowOnSite == true ? "بله" : "خیر",
+                    Id = x.Id
+                }).ToList();
+                return View(list);
+            }
+        }
     }
 }
