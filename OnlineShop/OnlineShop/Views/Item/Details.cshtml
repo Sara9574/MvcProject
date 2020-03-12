@@ -12,21 +12,23 @@
             display: flex;
             justify-content: flex-end;
         }
-
        .productHead {
             display: flex;
             align-items: flex-end;
             flex-direction: column;
             justify-content:space-around;
         }
-
+        label::before {
+           content:"\00a0";
+        }
+        
+       
         ol.navList {
             flex-direction: row-reverse;
             list-style-type: none;
             font-family: IRANSans;
             display: flex;
         }
-
         ol > li:hover a {
             background: white;
             text-decoration: none;
@@ -37,8 +39,8 @@
         }
 
         .sign::before {
-            content: " < ";
-            white-space: pre;
+            content: "";
+            white-space:normal;
         }
 
         .sign2::before {
@@ -59,6 +61,7 @@
             border: 1px solid #f7f7f7;
             box-shadow: 3px 3px 15px -6px grey;
             background-color: #fafafa;
+            font-size:medium;
         }
 
             .add-btn:hover {
@@ -66,7 +69,8 @@
             }
 
         .remove-btn {
-            padding: 1px 9px;
+            padding: 1px 7px;
+             font-size:large;
             border: 1px solid #f7f7f7;
             box-shadow: 3px 3px 15px -6px grey;
             background-color: #fafafa;
@@ -88,7 +92,7 @@
                 cursor: default;
             }
 
-        .submit {
+      /*  .submit {
             color: rgba(221, 25, 79, 0.92);
             padding: 5px;
             width: 50%;
@@ -97,21 +101,25 @@
             background-color: #fafafa;
             border: 1px solid #f7f7f7;
             box-shadow: 3px 3px 8px -4px grey;
-        }
+        }*/
 
-            .submit:hover {
+            .submit{
                 background-color: rgba(221, 25, 79, 0.92);
                 color: white;
-                border-radius: 5px;
+                width: 60%;
+                display:flex;
+                flex-wrap:nowrap;
+                justify-content:space-around;
                 border: 1px solid #f7f7f7;
-                box-shadow: 1px 1px 8px -4px grey;
+               
             }
 
         #btn-row {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-self: stretch;
-            margin: 13px 0;
+            flex-wrap:wrap-reverse;
+            margin: 20px 0;
         }
 
         .container {
@@ -122,7 +130,7 @@
         .details {
             display: flex;
             align-items: stretch;
-            padding: 30px 0px;
+            padding: 10px 0px;
             font-family: IRANSans;
             flex-wrap: nowrap;
             flex-direction: column;
@@ -147,15 +155,18 @@
         }
 
         label.normal {
-            color: rgb(98, 98, 98);
+            color: black;
             font-size: large;
         }
 
         .value {
             display: flex;
             justify-content: flex-end;
+            align-items:center;
             flex-wrap: nowrap;
-            font-size: large;
+            font-size: medium;
+            color:rgb(98, 98, 98);
+           
         }
 
         #productid > label {
@@ -174,7 +185,7 @@
         }
 
         .details-item {
-            margin: 13px 0;
+            margin:10px 0;
             
         }
 
@@ -185,12 +196,16 @@
         .color-choose div {
             display: inline-block;
         }
-
-        .color-choose > div > label > span {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            margin: -1px 4px 0 0;
+        input[type="radio"] {
+            display: none;
+        }
+        .optional {
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            width: 35px;
+            height: 35px;
+            margin: -1px 3px 0 0;
             vertical-align: middle;
             cursor: pointer;
             border-radius: 50%;
@@ -199,25 +214,14 @@
             background-repeat: no-repeat;
             background-position: center;
             text-align: center;
-            line-height: 44px;
+            font-size:small;
+            
         }
-
-            .color-choose > div > label > span > img {
+        .color-choose > div > label > span > img {
                 opacity: 0;
                 transition: all .3s ease;
+                display: inline-block;
             }
-
-        #brown + label span {
-            background-color: rgb(156, 111, 48);
-        }
-
-        #blue + label span {
-            background-color: dodgerblue;
-        }
-
-        #black + label span {
-            background-color: black;
-        }
 
         input[type="radio"] {
             display: none;
@@ -231,6 +235,11 @@
 
         input:checked + label span img {
             opacity: 1;
+            text-align: center;
+            margin: 0 auto;
+        }
+        input:checked + label span{
+            border: 2px solid rgba(0, 0, 0, 0.33);
         }
         #head-row {
             
@@ -239,114 +248,115 @@
             flex-direction:row-reverse;
             justify-content:space-between;
         }
+        label {
+            margin-bottom: 0px !important;
+        }
        
     </style>
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color:#f7f7f7">
 
     <div class=" container">
-
         <div class="row nav">
-            <ol class="navList">
-                <li class="sign2" style="font-size:medium;color:grey"><a href="/home/index">بازگشت به صفحه اصلي </a> </li>
-                <li class="sign" style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.CatTitle) </a></li>
-                <li class="sign" style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.SubCatTitle) </a> </li>
-                <li style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.Title) </a></li>
-            </ol>
+                <ol class="navList">
+                    <li class="sign2" style="font-size:medium;color:grey"><a href="/home/index">بازگشت به صفحه اصلي </a> </li>
+                    <li class="sign" style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.CatTitle) </a></li>
+                    <li class="sign" style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.SubCatTitle) </a> </li>
+                    <li style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.Title) </a></li>
+                </ol>
         </div>
-
         <div class="row productBox">
-
-            <div class="col-md-5 details">
-
-                <div class="details-item productHead">
-                    <div id="head-row"><h2 style="color:black">@Html.DisplayFor(model => model.Title)</h2><i class="fa fa-share-alt fa-2x"></i> </div>
-                    <div class="value "><div>MANGO</div><label>از برند </label></div>
-                    
-                   <!-- <div>
+               <div class="col-md-5 details">
+                   <div class="details-item productHead">
+                        <div id="head-row">
+                           <h2 style="color:black">@Html.DisplayFor(model => model.Title)</h2><i class="fa fa-share-alt fa-2x"></i>
+                         </div>
+                         <div class="value "><div>MANGO</div><label style="margin-right:.5rem">از برند </label></div>
+                         <div id="productid">@Html.DisplayFor(model => model.Id)<label style="margin-right:.5rem">کد </label></div>
+                    </div>
+               <!--   <div>
                         @for (int i = 0; i < 5; i++)
                         {
                             <span class="fa fa-star checked"></span>
                         }
                     </div>-->
-                    <div id="productid">@Html.DisplayFor(model => model.Id)<label >کد </label></div>
-                </div>
+                    
+               
+               <div class="details-item">
+                       <div class="value">@Html.DisplayFor(model => model.CatTitle)<label class="normal">دسته بندي</label> </div>
+                  </div>
+                  <div class="details-item"><div id="price" class="important value"><label style="color: rgb(98, 98, 98); font-size: medium;">تومان</label>@Html.DisplayFor(model => model.Price)<label class="normal">قيمت</label></div></div>
 
-                <div class="details-item">
-                    <div class="value">@Html.DisplayFor(model => model.CatTitle)<label class="normal">دسته بندي</label> </div>
-                </div>
-                <div class="details-item"><div id="price" class="important value"><label style="color: rgb(98, 98, 98); font-size: medium;">تومان</label>@Html.DisplayFor(model => model.Price)<label class="normal">قيمت</label></div></div>
-
-                <div class="details-item">
-                    <div class="value">
-                        @Html.DisplayFor(model => model.Color)<label class="normal">رنگ </label>
+                  <div class="details-item">
+                    <div class="value" >
+                       <span id="selectedColor">@Model.Colors[0].Title</span> 
+                       <label class="normal">رنگ </label>
 
                     </div>
-                    <div class="color-choose value">
-                        <div>
-                            <input data-image="brown" type="radio" id="brown" name="color" value="red" checked>
-                            <label for="red">
-                                <span>
-                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-                                </span>
-                            </label>
-                        </div>
-                        <div>
-                            <input data-image="blue" type="radio" id="blue" name="color" value="blue">
-                            <label for="blue">
-                                <span class="sppan">
-                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-                                </span>
-                            </label>
-                        </div>
-                        <div>
-                            <input data-image="black" type="radio" id="black" name="color" value="black">
-                            <label for="black">
-                                <span>
-                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-                                </span>
-                            </label>
-                        </div>
+                    <div style="margin-top:7px" class="color-choose value">
+                        @foreach (var color in Model.Colors)
+                        {
+                             <div>
+                                 <input data-image="@color.Title" type="radio" id="@color.Title" name="color" value="@color.Title">
+                                 <label style="display:flex;" for="@color.Title">
+                                     <span style="background-color: @color.Code;" class="optional">
+                                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                     </span>
+                                 </label>
+                             </div>
+                        }
                     </div>
 
                 </div>
                 <div class="details-item">
-                    <div id="size-value" class="value">
+                    <div  class="value">
+                        <span id="selectedSize">small</span> 
                        <label class="normal">سایز </label>
                        
                     </div>
-                    <div class="value">
-                        <select id="sizes" name="size">
-                            <option value="small">small</option>
-                            <option value="medium">medium</option>
-                            <option value="large">large</option>
-                            <option value="x-large">x-large</option>
-                        </select>
+                    <div style="margin-top:7px" class="choose-size value">
+                        @{
+                            string[] sizes = { "S", "L", "M", "X-L" };
+                        }
+                        @foreach (var size in sizes)
+                        {
+                            <div>
+                                <input  data-image="@size" type="radio" id="@size" name="size" value="@size">
+                                <label style="display:flex;justify-content:center" for="@size">
+                                    <span class="optional">
+                                        @size
+                                    </span>
+                                </label>
+                            </div>
+                        }
+
                     </div>
                     </div>
 
 
                 <div id="btn-row" class="details-item">
                     <button class="submit">
-                        افزودن به سبد خريد<i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 20px 0 0"></i>
+                        افزودن به سبد خريد<i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 5px 0 0"></i>
                     </button>
-                    <button class="btn remove-btn" value="@Model.Id">-</button>
-                    <span id="count">0</span>
-                    <button class="btn add-btn" value="@Model.Id">+</button>
+                    <div style="width:30%;display:flex;justify-content:space-around">
+                        <button class="btn remove-btn" value="@Model.Id">-</button>
+                        <span id="count">0</span>
+                        <button class="btn add-btn" value="@Model.Id">+</button>
+                    </div>
                 </div>
                 <div class="details-item">
-                    <div class="value"><div style="direction:rtl;font-size:medium; text-align:justify">@Html.DisplayFor(model => model.Description)</div></div>
+                    <div class="value"><div style="direction:rtl;font-size:medium; text-align:justify;">@Html.DisplayFor(model => model.Description)</div></div>
                 </div>
             </div>
-            <div class="col-md-5" style="display:flex;align-items:center">
+            <div class="col-md-5" style="display:flex; align-items:center">
 
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -384,11 +394,5 @@
         </div>
     </div>
 </body>
-
-<scirpt>
-    var e = document.getElementById("sizes");
-    var ptoductSize= e.options[e.selectedIndex].value;
-    document.getElementById("size-value")=productSize;
-</scirpt>
-
 </html>
+<script type="text/javascript" src="~/scripts/item/details.js"></script>
