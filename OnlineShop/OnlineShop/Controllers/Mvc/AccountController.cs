@@ -1,4 +1,5 @@
-﻿using OnlineShop.Filters;
+﻿using Newtonsoft.Json;
+using OnlineShop.Filters;
 using OnlineShop.Models;
 using OnlineShop.Models.Tables;
 using OnlineShop.ViewModels;
@@ -33,18 +34,28 @@ namespace OnlineShop.Controllers.Mvc
                 var user = await db.Users.Where(x => x.Email == model.Email && x.Password == model.Password).FirstOrDefaultAsync();
                 if (user == null)
                 {
-                    ViewBag.Error = "ایمیل یا رمز عبور اشتباه است.";
-                    return null;
+                    ViewBag.Error = "ایمیل یا رمز عبور اشتباه است!";
+                    return View();
                 }
+                if(!user.IsVerified)
+                {
+                    ViewBag.Error = "حساب کاربری شما هنوز تایید نشده!";
+                    return View();
+                }
+                RoleViewModel roleModel = new RoleViewModel { RoleId = user.RoleId, UserId = user.Id };
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
                     user.Fullname,
                     DateTime.Now,
                     DateTime.Now.AddMinutes(30),
                     false,
-                    user.Id.ToString(),
+                    JsonConvert.SerializeObject(roleModel),
                     FormsAuthentication.FormsCookiePath);
                 string encTicket = FormsAuthentication.Encrypt(ticket);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+                if (user.RoleId == 2)
+                {
+                    returnUrl = "/admin/panel";
+                }
             }
             return Redirect(returnUrl);
         }
@@ -59,16 +70,20 @@ namespace OnlineShop.Controllers.Mvc
                     Email = model.Email,
                     Fullname = model.Fullname,
                     Password = model.Password,
-                    Mobile = model.Mobile
+                    Mobile = model.Mobile,
+                    RoleId = 1 //normal user
+                    ,
+                    IsVerified = false
                 };
                 db.Users.Add(newUser);
                 await db.SaveChangesAsync();
+                RoleViewModel roleModel = new RoleViewModel { RoleId = 1, UserId = newUser.Id };
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
                    newUser.Fullname,
                    DateTime.Now,
                    DateTime.Now.AddMinutes(30),
                    false,
-                   newUser.Id.ToString(),
+                   JsonConvert.SerializeObject(roleModel),
                    FormsAuthentication.FormsCookiePath);
                 string encTicket = FormsAuthentication.Encrypt(ticket);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));

@@ -21,7 +21,7 @@
                     		,@temp=(SELECT TOP 1 id FROM color ORDER BY NEWID())
                     		if not exists (select 1 from itemcolor where ItemId=@tempItem and ColorId=@temp) and 
                     		(select count(distinct ic.ColorId) from ItemColor ic where ic.ItemId=@tempItem)<4
-                              and @temp!=13
+                            and @temp!=13
                     		insert into ItemColor values(@tempItem,@temp)
                     		set @x=@x-1
                     end");

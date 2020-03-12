@@ -24,7 +24,13 @@ $(document).ready(function () {
         }
     })
 
-
+    $("#btn-search").on('click', function (e) {
+        e.preventDefault();
+        let q = $("#q-search").val().trim();
+        if (q != "") {
+            window.location.href = `/item/SearchResult?q=${q}`;
+        }
+    });
     
 
     //$.get("/ajax/categories", function (data, status) {

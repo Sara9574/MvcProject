@@ -79,7 +79,7 @@
 
             Sql(@"declare @currentId int;
                     insert into Item(SubCategoryId,ColorId,Desciption,Price,Title)
-                    values (3,13,N'تنوع مدل های شلوار زنانه باعث شده است که هر شخص بنابر استایل شخصی خود بتواند شلوار زنانه مورد پسند خودرا پیدا کند.',113000,N'شلوار پارچه‌ای کوتاه')
+                    values (3,9,N'تنوع مدل های شلوار زنانه باعث شده است که هر شخص بنابر استایل شخصی خود بتواند شلوار زنانه مورد پسند خودرا پیدا کند.',113000,N'شلوار پارچه‌ای کوتاه')
                     SELECT @currentId=SCOPE_IDENTITY();
                     insert into [Image](ItemId,Link,IsMain)values
                     (@currentId,'http://www.upsara.com/images/u121289_1.jpg',1),

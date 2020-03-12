@@ -14,5 +14,9 @@ namespace OnlineShop.Models.Tables
         public string Fullname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public int RoleId { get; set; }
+        [ForeignKey(nameof(RoleId))]
+        public Role Role { get; set; }
+        public bool IsVerified { get; set; }
     }
 }

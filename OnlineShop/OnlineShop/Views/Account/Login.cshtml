@@ -97,6 +97,13 @@
             font-family: IRANSans;
             margin-bottom: 30px;
         }
+
+        .error {
+            direction: rtl;
+            text-align: center;
+            color: red;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -111,8 +118,15 @@
 
                     <h3 style="margin-top:10px;font-weight:normal;font-size:large;">ورود</h3>
                     <hr />
+
+                    @if (!string.IsNullOrWhiteSpace(ViewBag.Error))
+                    {
+                        <div class="input-row">
+                            <span class="error">@ViewBag.Error</span>
+                        </div>
+                    }
                     <div class="input-row">
-                        <input id="ReturnUrl"  name="ReturnUrl"  dir="rtl" value=@Request.QueryString["ReturnUrl"] hidden>
+                        <input id="ReturnUrl" name="ReturnUrl" dir="rtl" value=@Request.QueryString["ReturnUrl"] hidden>
                         <!-- <label class="col-sm-3">ايميل</label>-->
                         <input id="email" type="text" name="email" required dir="rtl" placeholder=" ايميل خود را وارد نماييد">
                         <i class="fa fa-envelope icon"></i>

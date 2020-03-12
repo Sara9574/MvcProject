@@ -17,9 +17,9 @@
                     update color set ColorCode='#4a290a' where id=8
                     update color set ColorCode='#000000' where id=9
                     update color set ColorCode='#ffffff' where id=10
-                    update color set ColorCode='#ff8605' where id=11
-                    update color set ColorCode='#757575' where id=12
-                   ");
+                    update color set ColorCode='#ff8605' where id=11);
+                    update color set ColorCode='#757575' where id=12");
+
         }
         
         public override void Down()
