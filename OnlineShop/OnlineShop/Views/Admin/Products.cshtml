@@ -10,7 +10,7 @@
 <head>
     <script src="~/scripts/jquery-3.4.1.min.js"></script>
     <meta name="viewport" content="width=device-width" />
-    <title>Products</title>
+    <title>مدیریت محصولات</title>
     <style>
         th, td {
             padding: 10px;
@@ -25,7 +25,7 @@
 
             .tab button {
                 background-color: inherit;
-                float: left;
+                float: right;
                 border: none;
                 outline: none;
                 cursor: pointer;
@@ -33,6 +33,7 @@
                 transition: 0.3s;
                 font-size: 17px;
             }
+
                 .tab button:hover {
                     background-color: #ddd;
                 }
@@ -40,16 +41,23 @@
                 .tab button.active {
                     background-color: #ccc;
                 }
+
         .tabcontent {
             display: none;
             padding: 6px 12px;
             border: 1px solid #ccc;
             border-top: none;
         }
+
+        h4 {
+            text-align: right;
+            margin: 20px 0;
+            color: #1b1b1b
+        }
     </style>
 </head>
 <body>
-    <h2>مدیریت محصولات</h2>
+    <h4>مدیریت محصولات</h4>
 
     <div class="tab">
         <button class="tablinks" value="women">زنانه</button>
@@ -58,8 +66,6 @@
     </div>
 
     <div id="women" class="tabcontent">
-        <h3>زنانه</h3>
-
         <table class="table-bordered" style="direction:rtl;width:100%;margin:20px 0">
             <tr>
                 <th>
@@ -85,43 +91,146 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @item.Id
-                    </td>
-                    <td>
-                        <a href="@item.Link">
-                            <img src="@item.Link" style="width:42px;height:65px; border-radius:2px" />
-                        </a>
-                    </td>
-                    <td>
-                        @item.Category-@item.SubCat
-                    </td>
-                    <td>
-                        @item.Price
-                    </td>
-                    <td>
-                        @item.Title
-                    </td>
-                    <td>
-                        @item.ShowOnSite
-                    </td>
-                </tr>
+                if (@item.Category == "زنانه")
+                {
+                    <tr>
+                        <td>
+                            @item.Id
+                        </td>
+                        <td>
+                            <a href="@item.Link">
+                                <img src="@item.Link" style="width:42px;height:65px; border-radius:2px" />
+                            </a>
+                        </td>
+                        <td>
+                            @item.Category-@item.SubCat
+                        </td>
+                        <td>
+                            @item.Price
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+                            @item.ShowOnSite
+                        </td>
+                    </tr>
+                }
+            }
+
+        </table>
+    </div>
+
+    <div id="men" class="tabcontent">
+        <table class="table-bordered" style="direction:rtl;width:100%;margin:20px 0">
+            <tr>
+                <th>
+                    کد محصول
+                </th>
+                <th>
+                    تصویر
+                </th>
+                <th>
+                    دسته بندی
+                </th>
+                <th>
+                    قیمت
+                </th>
+                <th>
+                    عنوان
+                </th>
+                <th>
+                    نمایش در سایت
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (@item.Category == "مردانه")
+                {
+                    <tr>
+                        <td>
+                            @item.Id
+                        </td>
+                        <td>
+                            <a href="@item.Link">
+                                <img src="@item.Link" style="width:42px;height:65px; border-radius:2px" />
+                            </a>
+                        </td>
+                        <td>
+                            @item.Category-@item.SubCat
+                        </td>
+                        <td>
+                            @item.Price
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+                            @item.ShowOnSite
+                        </td>
+                    </tr>
+                }
             }
 
         </table>
 
-
-    </div>
-
-    <div id="men" class="tabcontent">
-        <h3>مردانه</h3>
-        <p>Paris is the capital of France.</p>
     </div>
 
     <div id="children" class="tabcontent">
-        <h3>بچگانه</h3>
-        <p>Tokyo is the capital of Japan.</p>
+        <table class="table-bordered" style="direction:rtl;width:100%;margin:20px 0">
+            <tr>
+                <th>
+                    کد محصول
+                </th>
+                <th>
+                    تصویر
+                </th>
+                <th>
+                    دسته بندی
+                </th>
+                <th>
+                    قیمت
+                </th>
+                <th>
+                    عنوان
+                </th>
+                <th>
+                    نمایش در سایت
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (@item.Category == "بچگانه")
+                {
+                    <tr>
+                        <td>
+                            @item.Id
+                        </td>
+                        <td>
+                            <a href="@item.Link">
+                                <img src="@item.Link" style="width:42px;height:65px; border-radius:2px" />
+                            </a>
+                        </td>
+                        <td>
+                            @item.Category-@item.SubCat
+                        </td>
+                        <td>
+                            @item.Price
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+                            @item.ShowOnSite
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
     </div>
 
 </body>

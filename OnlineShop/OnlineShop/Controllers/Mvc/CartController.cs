@@ -103,7 +103,6 @@ namespace OnlineShop.Controllers.Mvc
         {
             using (var db = new OnlineShopDbContext())
             {
-
                 var count = await db.InvoiceItems.Where(x => x.Invoice.UserId == CurrentUserId).Select(x => x.Count).DefaultIfEmpty(0).SumAsync(x => x);
                 return Json(count, JsonRequestBehavior.AllowGet);
             }

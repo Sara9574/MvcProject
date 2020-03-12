@@ -31,5 +31,14 @@ namespace OnlineShop.Controllers.Mvc
                 return View(result);
             }
         }
+        [Route("SubCats/{id}")]
+        public async Task<ActionResult> SubCats(int id)
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var result = await db.SubCategories.Where(x => x.CategoryId == id).Select(x => new { x.Id, x.Title }).ToListAsync();
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

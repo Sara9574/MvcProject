@@ -1,4 +1,5 @@
 ﻿using OnlineShop.Models;
+using OnlineShop.Models.Tables;
 using OnlineShop.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,11 @@ namespace OnlineShop.Controllers.Mvc
                 }).ToList();
                 return View(list);
             }
+        }
+
+        public ActionResult AddProduct()
+        {
+            return View();
         }
     }
 }

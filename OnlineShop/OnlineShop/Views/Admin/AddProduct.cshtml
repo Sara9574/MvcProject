@@ -1,0 +1,73 @@
+﻿@model OnlineShop.Models.Tables.Item
+
+@{
+     Layout = "~/Views/Shared/Sidebar.cshtml";
+}
+<head>
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>افزودن محصول</title>
+    <style>
+        h4 {
+            text-align: right;
+            margin: 20px 0;
+            color: #1b1b1b
+        }
+
+        body {
+            font-family: IRANSans;
+        }
+        fieldset{
+            background-color:#e0e0e0;
+            padding:20px;
+        }
+        select{
+            width:130px;
+        }
+        .row{
+            margin:10px 0;
+        }
+        label{
+            text-align:left
+        }
+    </style>
+</head>
+<body>
+    <h4>افزودن محصول</h4>
+    <div style="direction:rtl">
+        <form>
+            <fieldset>
+                <div class="row">
+                    <label class="col-md-1 ">عنوان</label>
+                    <div class="col-md-2">
+                        <input type="text" id="pro-title" />
+                    </div>
+                    <label class="col-md-1 ">دسته</label>
+                    <div class="col-md-2" >
+                        <select id="cat">
+                            <option value="1">زنانه</option>
+                            <option value="2">مردانه</option>
+                            <option value="3">بچگانه</option>
+                        </select>
+                    </div>
+                    <label class="col-md-1 ">زیر دسته</label>
+                    <div class="col-md-2 ">
+                        <select id="sub-cat">
+                      
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-1">قیمت</label>
+                    <div class="col-md-2">
+                        <input type="number" id="price" step="500" min="10000"/>
+                    </div>
+                </div>
+                <button id="add">ثبت</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+<script type="text/javascript" src="~/scripts/admin/add-product.js"></script>
