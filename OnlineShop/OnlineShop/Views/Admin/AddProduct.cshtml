@@ -32,6 +32,16 @@
         label{
             text-align:left
         }
+        .img{
+            min-width:350px
+        }
+         .color {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            margin:10px 10px 0 40px;
+        }
     </style>
 </head>
 <body>
@@ -45,7 +55,7 @@
                         <input type="text" id="pro-title" />
                     </div>
                     <label class="col-md-1 ">دسته</label>
-                    <div class="col-md-2" >
+                    <div class="col-md-2">
                         <select id="cat">
                             <option value="1">زنانه</option>
                             <option value="2">مردانه</option>
@@ -55,17 +65,52 @@
                     <label class="col-md-1 ">زیر دسته</label>
                     <div class="col-md-2 ">
                         <select id="sub-cat">
-                      
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <label class="col-md-1">قیمت</label>
                     <div class="col-md-2">
-                        <input type="number" id="price" step="500" min="10000"/>
+                        <input type="number" id="price" step="500" min="10000" />
                     </div>
                 </div>
-                <button id="add">ثبت</button>
+                <div class="row">
+                    <label class="col-md-1">تصویر ۱</label>
+                    <div class="col-md-4">
+                        <input type="text" id="img1" class="img" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-1">تصویر ۲</label>
+                    <div class="col-md-4">
+                        <input type="text" id="img2" class="img" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-1">تصویر ۳</label>
+                    <div class="col-md-4">
+                        <input type="text" id="img3" class="img" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-1">تصویر ۴</label>
+                    <div class="col-md-4">
+                        <input type="text" id="img4" class="img" />
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-1" style="margin-top:10px">رنگ‌ها</label>
+                    <div id="colors">
+
+                    </div>
+                </div>
+                <div class="row" style="text-align:center;margin:20px 0">
+                    <button id="add" style="margin:0 auto">ثبت</button>
+                </div>
+                    
             </fieldset>
         </form>
     </div>

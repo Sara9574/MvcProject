@@ -12,4 +12,13 @@
         });
     });
     $('#cat').trigger("change");
+
+    $.get(`/ajax/colors`, function (data, status) {
+        for (let i = 0; i < data.length; i++) {
+            let container = $("#colors");
+            $('<input />', { type: 'checkbox', id: `${data[i].Id}`, title: `${data[i].Title}` }).appendTo(container);
+            $("#colors").append(`<span class='color' style="background-color:${data[i].ColorCode}" title="${data[i].Title}"></span>`);
+        }
+    });
+
 });

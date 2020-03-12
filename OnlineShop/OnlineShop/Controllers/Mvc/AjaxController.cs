@@ -21,5 +21,14 @@ namespace OnlineShop.Controllers.Mvc
                 return Json(categories, JsonRequestBehavior.AllowGet);
             }
         }
+
+        public async Task<ActionResult> Colors()
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var result = await db.Colors.Select(x => new  { x.Id, x.ColorCode, x.Title }).ToListAsync();
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }
