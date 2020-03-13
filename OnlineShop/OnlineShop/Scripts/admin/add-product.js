@@ -16,16 +16,16 @@
     $.get(`/ajax/colors`, function (data, status) {
         for (let i = 0; i < data.length; i++) {
             let container = $("#colors");
-            $('<input />', { type: 'checkbox', id: `${data[i].Id}`, title: `${data[i].Title}` }).appendTo(container);
-            $("#colors").append(`<span class='color' style="background-color:${data[i].ColorCode}" title="${data[i].Title}"></span>`);
+            $('<input />', { type: 'checkbox', id: `color-${data[i].Id}`, title: `${data[i].Title}` }).appendTo(container);
+            $("#colors").append(`<label for="color-${data[i].Id}" class='color' style="background-color:${data[i].ColorCode}" title="${data[i].Title}"></span>`);
         }
     });
 
     $.get(`/ajax/sizes `, function (data, status) {
         for (let i = 0; i < data.length; i++) {
             let container = $("#sizes");
-            $('<input />', { type: 'checkbox', id: `${data[i].Id}`, title: `${data[i].Tag}` }).appendTo(container);
-            $("#sizes").append(`<span class="size">${data[i].Tag}</span>`);
+            $('<input />', { type: 'checkbox', id: `size-${data[i].Id}`, title: `${data[i].Tag}` }).appendTo(container);
+            $("#sizes").append(`<label class="size" for="size-${data[i].Id}">${data[i].Tag}</label>`);
         }
     });
 
