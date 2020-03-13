@@ -1,7 +1,7 @@
 ﻿@model OnlineShop.Models.Tables.Item
 
 @{
-     Layout = "~/Views/Shared/Sidebar.cshtml";
+    Layout = "~/Views/Shared/Sidebar.cshtml";
 }
 <head>
     <script src="~/scripts/jquery-3.4.1.min.js"></script>
@@ -19,28 +19,38 @@
         body {
             font-family: IRANSans;
         }
-        fieldset{
-            background-color:#e0e0e0;
-            padding:20px;
+
+        fieldset {
+            background-color: #e0e0e0;
+            padding: 20px;
         }
-        select{
-            width:130px;
+
+        select {
+            width: 130px;
         }
-        .row{
-            margin:10px 0;
+
+        .row {
+            margin: 10px 0;
         }
-        label{
-            text-align:left
+
+        label {
+            text-align: left
         }
-        .img{
-            min-width:350px;
+
+        .img {
+            min-width: 350px;
         }
-         .color {
+
+        .color {
             width: 20px;
             height: 20px;
             display: inline-block;
             border-radius: 10px;
-            margin:10px 10px 0 40px;
+            margin: 10px 10px 0 35px;
+        }
+
+        .size {
+            margin: 10px 10px 0 40px;
         }
     </style>
 </head>
@@ -82,35 +92,37 @@
                     <labe class="col-md-4" style="color:#041b45;font-size:11px;text-align:right;margin:5px 10px 0 0">تصویر اول به عنوان تصویر اصلی در نظر گرفته می‌شود.</labe>
                 </div>
 
-                    <div class="row">
-                        <label class="col-md-1">تصویر ۲</label>
-                        <div class="col-md-4">
-                            <input type="text" id="img2" class="img" />
-                        </div>
+                <div class="row">
+                    <label class="col-md-1">تصویر ۲</label>
+                    <div class="col-md-4">
+                        <input type="text" id="img2" class="img" />
                     </div>
+                </div>
 
-                    <div class="row">
-                        <label class="col-md-1">تصویر ۳</label>
-                        <div class="col-md-4">
-                            <input type="text" id="img3" class="img" />
-                        </div>
+                <div class="row">
+                    <label class="col-md-1">تصویر ۳</label>
+                    <div class="col-md-4">
+                        <input type="text" id="img3" class="img" />
                     </div>
+                </div>
 
-                    <div class="row">
-                        <label class="col-md-1">تصویر ۴</label>
-                        <div class="col-md-4">
-                            <input type="text" id="img4" class="img" />
-                        </div>
+                <div class="row">
+                    <label class="col-md-1">تصویر ۴</label>
+                    <div class="col-md-4">
+                        <input type="text" id="img4" class="img" />
                     </div>
-                    <div class="row">
-                        <label class="col-md-1" style="margin-top:10px">رنگ‌ها</label>
-                        <div id="colors">
-
-                        </div>
-                    </div>
-                    <div class="row" style="text-align:center;margin:20px 0">
-                        <button id="add" style="margin:0 auto">ثبت</button>
-                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-1" style="margin-top:10px">رنگ‌ها</label>
+                    <div id="colors"></div>
+                </div>
+                <div class="row">
+                    <label class="col-md-1" style="margin-top:10px">سایز‌ها</label>
+                    <div id="sizes" style="margin-top:10px"></div>
+                </div>
+                <div class="row" style="text-align:center;margin:20px 0">
+                    <button id="add" style="margin:0 auto">ثبت</button>
+                </div>
 
             </fieldset>
         </form>
