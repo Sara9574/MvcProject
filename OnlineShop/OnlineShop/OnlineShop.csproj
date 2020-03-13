@@ -331,6 +331,14 @@
     <Compile Include="Migrations\202003130703516_SizeValuesAreAdded.designer.cs">
       <DependentUpon>202003130703516_SizeValuesAreAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003130726185_ItemSizeTableIsAdded.cs" />
+    <Compile Include="Migrations\202003130726185_ItemSizeTableIsAdded.designer.cs">
+      <DependentUpon>202003130726185_ItemSizeTableIsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003130731400_ItemSizeValuesAreAdded.cs" />
+    <Compile Include="Migrations\202003130731400_ItemSizeValuesAreAdded.designer.cs">
+      <DependentUpon>202003130731400_ItemSizeValuesAreAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -342,6 +350,7 @@
     <Compile Include="Models\Tables\InvoiceState.cs" />
     <Compile Include="Models\Tables\Item.cs" />
     <Compile Include="Models\Tables\ItemColor.cs" />
+    <Compile Include="Models\Tables\ItemSize.cs" />
     <Compile Include="Models\Tables\Role.cs" />
     <Compile Include="Models\Tables\Size.cs" />
     <Compile Include="Models\Tables\SubCategory.cs" />
@@ -673,6 +682,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003130703516_SizeValuesAreAdded.resx">
       <DependentUpon>202003130703516_SizeValuesAreAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003130726185_ItemSizeTableIsAdded.resx">
+      <DependentUpon>202003130726185_ItemSizeTableIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003130731400_ItemSizeValuesAreAdded.resx">
+      <DependentUpon>202003130731400_ItemSizeValuesAreAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

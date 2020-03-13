@@ -16,11 +16,19 @@ namespace OnlineShop.ViewModels
         public string Link { get; set; }
         public int Price { get; set; }
         public List<string> OtherImages { get; set; }
+        public List<SizeViewModel> Sizes { get; set; }
+
     }
 
     public class ColorViewModel
     {
+        public int Id { get; set; }
         public string Code { get; set; }
         public string Title { get; set; }
+    }
+    public class SizeViewModel
+    {
+        public int Id { get; set; }
+        public string Tag { get; set; }
     }
 }
