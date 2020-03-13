@@ -19,14 +19,15 @@ namespace OnlineShop.Controllers.Mvc
                 var item = db.Items.Where(x => x.Id == id).Select(x => new ItemViewModel
                 {
                     CatTitle = x.SubCategory.Category.Title,
-                    Colors = db.ItemColors.Where(y => y.ItemId == x.Id).Select(y => new ColorViewModel { Code = y.Color.ColorCode, Title = y.Color.Title }).ToList(),
+                    Colors = db.ItemColors.Where(y => y.ItemId == x.Id).Select(y => new ColorViewModel { Id = y.ColorId, Code = y.Color.ColorCode, Title = y.Color.Title }).ToList(),
                     Description = x.Desciption,
                     Title = x.Title,
                     Link = db.Images.Where(y => y.ItemId == x.Id && y.IsMain == true).Select(y => y.Link).FirstOrDefault(),
                     Price = x.Price,
                     SubCatTitle = x.SubCategory.Title,
                     Id = x.Id,
-                    OtherImages = db.Images.Where(y => y.ItemId == x.Id && y.IsMain != true).Select(y => y.Link).ToList()
+                    OtherImages = db.Images.Where(y => y.ItemId == x.Id && y.IsMain != true).Select(y => y.Link).ToList(),
+                    Sizes = db.ItemSizes.Where(y => y.ItemId == x.Id).Select(y => new SizeViewModel { Id = y.SizeId, Tag = y.Size.Tag }).ToList(),
                 }).FirstOrDefault();
                 return View(item);
             }
@@ -40,14 +41,15 @@ namespace OnlineShop.Controllers.Mvc
                 db.ItemColors.Where(y => y.ItemId == x.Id).Select(y => y.Color.Title).Contains(q)).Select(x => new ItemViewModel
                 {
                     CatTitle = x.SubCategory.Category.Title,
-                    Colors = db.ItemColors.Where(y => y.ItemId == x.Id).Select(y => new ColorViewModel { Code = y.Color.ColorCode, Title = y.Color.Title }).ToList(),
+                    Colors = db.ItemColors.Where(y => y.ItemId == x.Id).Select(y => new ColorViewModel { Id = y.ColorId, Code = y.Color.ColorCode, Title = y.Color.Title }).ToList(),
                     Description = x.Desciption,
                     Title = x.Title,
                     Link = db.Images.Where(y => y.ItemId == x.Id && y.IsMain == true).Select(y => y.Link).FirstOrDefault(),
                     Price = x.Price,
                     SubCatTitle = x.SubCategory.Title,
                     Id = x.Id,
-                    OtherImages = db.Images.Where(y => y.ItemId == x.Id && y.IsMain != true).Select(y => y.Link).ToList()
+                    OtherImages = db.Images.Where(y => y.ItemId == x.Id && y.IsMain != true).Select(y => y.Link).ToList(),
+                    Sizes = db.ItemSizes.Where(y => y.ItemId == x.Id).Select(y => new SizeViewModel { Id = y.SizeId, Tag = y.Size.Tag }).ToList(),
                 }).ToList();
                 return View(reuslt);
             }

@@ -10,11 +10,11 @@
             margin: 0;
             padding: 0;
             font-family: "Lato", sans-serif;
-            font-family:IRANSans
+            font-family: IRANSans
         }
 
         div#right-sidebar {
-            position: absolute;
+            position: fixed;
             top: 0;
             right: 0;
             width: 200px;
@@ -37,7 +37,7 @@
             color: black;
             padding: 16px;
             text-decoration: none;
-            text-align:right
+            text-align: right
         }
 
             #right-sidebar a.active {
@@ -77,14 +77,30 @@
                 float: none;
             }
         }
+
+        #title {
+            display: block;
+            padding: 16px;
+            text-decoration: none;
+            text-align: right;
+            background-color: #222222;
+            color: white !important;
+        }
+
+            #title:hover {
+                background-color: #222222 !important;
+                color: white !important;
+            }
     </style>
 </head>
 <body>
 
     <div id="right-sidebar">
+        <a id="title" href="/">اسم سایت</a>
         <a id="panel" href="/admin/panel">پنل ادمین</a>
         <a id="UserManagement" href="/admin/UserManagement">مدیریت کاربران</a>
         <a id="products" href="/admin/products">مدیریت محصولات</a>
+        <a id="addProduct" href="/admin/addProduct">افزودن محصول جدید</a>
         <a id="feedback" href="/admin/feedback">نظرات</a>
     </div>
 
