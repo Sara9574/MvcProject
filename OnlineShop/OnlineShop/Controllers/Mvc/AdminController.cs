@@ -1,4 +1,5 @@
-﻿using OnlineShop.Models;
+﻿using Newtonsoft.Json;
+using OnlineShop.Models;
 using OnlineShop.Models.Tables;
 using OnlineShop.ViewModels;
 using System;
@@ -52,7 +53,12 @@ namespace OnlineShop.Controllers.Mvc
 
         public ActionResult AddProduct()
         {
-            return View();
+            using (var db = new OnlineShopDbContext())
+            {
+                ViewBag.Colors = JsonConvert.SerializeObject(db.Colors.Select(x => new { x.Id, x.ColorCode, x.Title }).ToList());
+                ViewBag.Sizes = JsonConvert.SerializeObject(db.Sizes.Select(x => new { x.Id, x.Tag, x.Title }).ToList());
+                return View();
+            }
         }
     }
 }

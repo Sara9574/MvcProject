@@ -13,20 +13,16 @@
     });
     $('#cat').trigger("change");
 
-    $.get(`/ajax/colors`, function (data, status) {
-        for (let i = 0; i < data.length; i++) {
-            let container = $("#colors");
-            $('<input />', { type: 'checkbox', id: `color-${data[i].Id}`, title: `${data[i].Title}` }).appendTo(container);
-            $("#colors").append(`<label for="color-${data[i].Id}" class='color' style="background-color:${data[i].ColorCode}" title="${data[i].Title}"></span>`);
-        }
-    });
+    for (let i = 0; i < Colors.length; i++) {
+        let container = $("#colors");
+        $('<input />', { type: 'checkbox', id: `color-${Colors[i].Id}`, title: `${Colors[i].Title}` }).appendTo(container);
+        $("#colors").append(`<label for="color-${Colors[i].Id}" class='color' style="background-color:${Colors[i].ColorCode}" title="${Colors[i].Title}"></span>`);
+    }
+    for (let i = 0; i < Sizes.length; i++) {
+        let container = $("#sizes");
+        $('<input />', { type: 'checkbox', id: `size-${Sizes[i].Id}`, title: `${Sizes[i].Tag}` }).appendTo(container);
+        $("#sizes").append(`<label class="size" for="size-${Sizes[i].Id}">${Sizes[i].Tag}</label>`);
+    }
 
-    $.get(`/ajax/sizes `, function (data, status) {
-        for (let i = 0; i < data.length; i++) {
-            let container = $("#sizes");
-            $('<input />', { type: 'checkbox', id: `size-${data[i].Id}`, title: `${data[i].Tag}` }).appendTo(container);
-            $("#sizes").append(`<label class="size" for="size-${data[i].Id}">${data[i].Tag}</label>`);
-        }
-    });
 
 });
