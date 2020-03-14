@@ -1,4 +1,5 @@
 ﻿using OnlineShop.Models;
+using OnlineShop.Models.Tables;
 using OnlineShop.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,51 @@ namespace OnlineShop.Controllers.Mvc
                     Sizes = db.ItemSizes.Where(y => y.ItemId == x.Id).Select(y => new SizeViewModel { Id = y.SizeId, Tag = y.Size.Tag }).ToList(),
                 }).ToList();
                 return View(reuslt);
+            }
+        }
+        [HttpPost]
+        public ActionResult AddProduct(AddItemViewModel model)
+        {
+            using (var db = new OnlineShopDbContext())
+            {
+                var item = new Item
+                {
+                    Desciption = model.Description,
+                    Price = model.Price,
+                    ShowOnSite = true,
+                    SubCategoryId = model.SubCatId,
+                    Title = model.Title
+                };
+                db.Items.Add(item);
+                db.SaveChanges();
+                foreach (var color in model.Colors)
+                {
+                    var itemColor = new ItemColor
+                    {
+                        ColorId = color,
+                        ItemId = item.Id
+                    };
+                    db.ItemColors.Add(itemColor);
+                }
+                foreach (var size in model.Sizes)
+                {
+                    var itemSize = new ItemSize
+                    {
+                        SizeId = size,
+                        ItemId = item.Id
+                    };
+                    db.ItemSizes.Add(itemSize);
+                }
+                var link1 = new Image{IsMain = true,ItemId = item.Id,Link = model.Link1,};
+                var link2 = new Image { IsMain = false, ItemId = item.Id, Link = model.Link2, };
+                var link3 = new Image { IsMain = false, ItemId = item.Id, Link = model.Link3, };
+                var link4 = new Image { IsMain = false, ItemId = item.Id, Link = model.Link4, };
+                db.Images.Add(link1);
+                db.Images.Add(link2);
+                db.Images.Add(link3);
+                db.Images.Add(link4);
+                db.SaveChanges();
+                return Json(item.Id, JsonRequestBehavior.AllowGet);
             }
         }
     }
