@@ -88,7 +88,7 @@ namespace OnlineShop.Controllers.Mvc
                 return Redirect("/error/unathorized");
             }
         }
-
+        [Route("VerifyUser/{id}")]
         public ActionResult VerifyUser(int id)
         {
             if (CurrentUserRoleId == 2)
@@ -97,15 +97,16 @@ namespace OnlineShop.Controllers.Mvc
                 {
                     var user = db.Users.Find(id);
                     user.IsVerified = true;
-                    return Json(user);
+                    db.SaveChanges();
+                    return Redirect("/admin/usermanagement");
                 }
             }
             else
             {
-                Response.StatusCode = 401;
-                return Json(new { });
+                return Redirect("/error/unathorized");
             }
         }
+        [Route("RejectUser/{id}")]
         public ActionResult RejectUser(int id)
         {
             if (CurrentUserRoleId == 2)
@@ -114,13 +115,13 @@ namespace OnlineShop.Controllers.Mvc
                 {
                     var user = db.Users.Find(id);
                     user.IsVerified = false;
-                    return Json(user);
+                    db.SaveChanges();
+                    return Redirect("/admin/usermanagement");
                 }
             }
             else
             {
-                Response.StatusCode = 401;
-                return Json(new { });
+                return Redirect("/error/unathorized");
             }
         }
     }

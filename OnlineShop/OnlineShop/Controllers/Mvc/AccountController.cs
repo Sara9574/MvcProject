@@ -77,17 +77,17 @@ namespace OnlineShop.Controllers.Mvc
                 };
                 db.Users.Add(newUser);
                 await db.SaveChangesAsync();
-                RoleViewModel roleModel = new RoleViewModel { RoleId = 1, UserId = newUser.Id };
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
-                   newUser.Fullname,
-                   DateTime.Now,
-                   DateTime.Now.AddMinutes(30),
-                   false,
-                   JsonConvert.SerializeObject(roleModel),
-                   FormsAuthentication.FormsCookiePath);
-                string encTicket = FormsAuthentication.Encrypt(ticket);
-                Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
-                return Redirect("/home/index");
+                //RoleViewModel roleModel = new RoleViewModel { RoleId = 1, UserId = newUser.Id };
+                //FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+                //   newUser.Fullname,
+                //   DateTime.Now,
+                //   DateTime.Now.AddMinutes(30),
+                //   false,
+                //   JsonConvert.SerializeObject(roleModel),
+                //   FormsAuthentication.FormsCookiePath);
+                //string encTicket = FormsAuthentication.Encrypt(ticket);
+                //Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+                return View();
             }
         }
 
