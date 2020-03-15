@@ -87,7 +87,7 @@ namespace OnlineShop.Controllers.Mvc
                 //   FormsAuthentication.FormsCookiePath);
                 //string encTicket = FormsAuthentication.Encrypt(ticket);
                 //Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
-                return View();
+                return Redirect("/account/pending");
             }
         }
 
@@ -131,6 +131,10 @@ namespace OnlineShop.Controllers.Mvc
                 }).FirstOrDefaultAsync();
                 return View(user);
             }
+        }
+        public ActionResult Pending()
+        {
+            return View();
         }
     }
 }
