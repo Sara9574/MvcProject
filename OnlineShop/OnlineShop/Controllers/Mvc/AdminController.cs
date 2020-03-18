@@ -37,7 +37,7 @@ namespace OnlineShop.Controllers.Mvc
             {
                 using (var db = new OnlineShopDbContext())
                 {
-                    var list = db.Users.Where(x => x.IsVerified == false).ToList();
+                    var list = db.Users.Where(x => x.IsReviewed == false).ToList();
                     return View(list);
                 }
             }
@@ -97,6 +97,7 @@ namespace OnlineShop.Controllers.Mvc
                 {
                     var user = db.Users.Find(id);
                     user.IsVerified = true;
+                    user.IsReviewed = true;
                     db.SaveChanges();
                     return Redirect("/admin/usermanagement");
                 }
@@ -115,6 +116,7 @@ namespace OnlineShop.Controllers.Mvc
                 {
                     var user = db.Users.Find(id);
                     user.IsVerified = false;
+                    user.IsReviewed = true;
                     db.SaveChanges();
                     return Redirect("/admin/usermanagement");
                 }

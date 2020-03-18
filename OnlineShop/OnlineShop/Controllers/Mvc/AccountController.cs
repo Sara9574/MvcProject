@@ -37,9 +37,14 @@ namespace OnlineShop.Controllers.Mvc
                     ViewBag.Error = "ایمیل یا رمز عبور اشتباه است!";
                     return View();
                 }
-                if(!user.IsVerified)
+                if (user.IsReviewed && !user.IsVerified)
                 {
-                    ViewBag.Error = "حساب کاربری شما هنوز تایید نشده!";
+                    ViewBag.Error = "حساب کاربری شما رد شده!";
+                    return View();
+                }
+                if (!user.IsReviewed)
+                {
+                    ViewBag.Error = "حساب کاربری شما هنوز بررسی و تایید نشده!";
                     return View();
                 }
                 RoleViewModel roleModel = new RoleViewModel { RoleId = user.RoleId, UserId = user.Id };
@@ -73,7 +78,8 @@ namespace OnlineShop.Controllers.Mvc
                     Mobile = model.Mobile,
                     RoleId = 1 //normal user
                     ,
-                    IsVerified = false
+                    IsVerified = false,
+                    IsReviewed = false
                 };
                 db.Users.Add(newUser);
                 await db.SaveChangesAsync();
