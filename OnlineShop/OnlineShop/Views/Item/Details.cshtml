@@ -8,19 +8,27 @@
 <html>
 <head>
     <style>
-
         div.nav {
             display: flex;
             justify-content: flex-end;
         }
-
+       .productHead {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            justify-content:space-around;
+        }
+        label::before {
+           content:"\00a0";
+        }
+        
+       
         ol.navList {
             flex-direction: row-reverse;
             list-style-type: none;
             font-family: IRANSans;
             display: flex;
         }
-
         ol > li:hover a {
             background: white;
             text-decoration: none;
@@ -31,8 +39,8 @@
         }
 
         .sign::before {
-            content: " < ";
-            white-space: pre;
+            content: "";
+            white-space:normal;
         }
 
         .sign2::before {
@@ -48,8 +56,21 @@
             color: orange;
         }
 
+        .add-btn {
+            padding: 1px 7px;
+            border: 1px solid #f7f7f7;
+            box-shadow: 3px 3px 15px -6px grey;
+            background-color: #fafafa;
+            font-size:medium;
+        }
+
+            .add-btn:hover {
+                background-color: #cfffcd !important;
+            }
+
         .remove-btn {
             padding: 1px 7px;
+             font-size:large;
             border: 1px solid #f7f7f7;
             box-shadow: 3px 3px 15px -6px grey;
             background-color: #fafafa;
@@ -59,49 +80,46 @@
                 background-color: #ffcdcd !important;
             }
 
-
-        .add-btn {
-            padding: 1px 7px;
-            border: 1px solid #f7f7f7;
-            box-shadow: 3px 3px 15px -6px grey;
-            background-color: #fafafa;
-        }
-
-            .add-btn:hover {
-                background-color: #cfffcd !important;
-            }
-
         #count {
             background-color: #e5e5e5;
-            padding: 8px;
+            padding: 9px;
             border-radius: 3px;
             box-shadow: 1px 3px 15px -6px grey;
             font-size: 13px;
         }
 
-        .submit {
+            #count:hover {
+                cursor: default;
+            }
+
+      /*  .submit {
             color: rgba(221, 25, 79, 0.92);
             padding: 5px;
-            width: 55%;
+            width: 50%;
             border-radius: 5px;
             font-family: IRANSans;
             background-color: #fafafa;
             border: 1px solid #f7f7f7;
             box-shadow: 3px 3px 8px -4px grey;
-        }
+        }*/
 
-            .submit:hover {
+            .submit{
                 background-color: rgba(221, 25, 79, 0.92);
                 color: white;
-                border-radius: 5px;
+                width: 60%;
+                display:flex;
+                flex-wrap:nowrap;
+                justify-content:space-around;
                 border: 1px solid #f7f7f7;
-                box-shadow: 1px 1px 8px -4px grey;
+               
             }
 
         #btn-row {
             display: flex;
-            justify-content: space-around;
-            align-self: stretch
+            justify-content: space-between;
+            align-self: stretch;
+            flex-wrap:wrap-reverse;
+            margin: 20px 0;
         }
 
         .container {
@@ -111,17 +129,19 @@
 
         .details {
             display: flex;
-            align-items: flex-end;
+            align-items: stretch;
+            padding: 10px 0px;
             font-family: IRANSans;
+            flex-wrap: nowrap;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: flex-start;
         }
 
         .productBox {
             box-shadow: 3px 3px 30px -10px grey;
             border: 1px solid #f7f7f7;
             border-radius: 15px;
-            padding: 20px 0px 20px 0px;
+            padding: 10px 0px 10px 20px;
         }
 
         .important {
@@ -130,77 +150,213 @@
 
 
         label.normal::before {
-            content: " : ";
+            content: " :";
             white-space: pre;
         }
 
         label.normal {
-            color: rgb(98, 98, 98);
-            font-size: medium;
-        }
-
-        .value {
+            color: black;
             font-size: large;
         }
 
+        .value {
+            display: flex;
+            justify-content: flex-end;
+            align-items:center;
+            flex-wrap: nowrap;
+            font-size: medium;
+            color:rgb(98, 98, 98);
+           
+        }
+
         #productid > label {
-            font-size: x-small;
-            color: rgb(139, 139, 139);
+           
         }
 
         #productid {
             font-size: x-small;
+            font-weight: bold;
             color: rgb(139, 139, 139);
         }
+
+        #sizes {
+            direction: rtl;
+            width: 100%;
+        }
+
+        .details-item {
+            margin:10px 0;
+            
+        }
+
+        .product-color {
+            margin-bottom: 30px;
+        }
+
+        .color-choose div {
+            display: inline-block;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        .optional {
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            width: 35px;
+            height: 35px;
+            margin: -1px 3px 0 0;
+            vertical-align: middle;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+            background-repeat: no-repeat;
+            background-position: center;
+            text-align: center;
+            font-size:small;
+            
+        }
+        .color-choose > div > label > span > img {
+                opacity: 0;
+                transition: all .3s ease;
+                display: inline-block;
+            }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+            input[type="radio"] + lable {
+                color: #333;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+            }
+
+        input:checked + label span img {
+            opacity: 1;
+            text-align: center;
+            margin: 0 auto;
+        }
+        input:checked + label span{
+            border: 2px solid rgba(0, 0, 0, 0.33);
+        }
+        #head-row {
+            
+            display:flex;
+            align-self:stretch;
+            flex-direction:row-reverse;
+            justify-content:space-between;
+        }
+        label {
+            margin-bottom: 0px !important;
+        }
+       
     </style>
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color:#f7f7f7">
 
-    <div class="container">
-
+    <div class=" container">
         <div class="row nav">
-            <ol class="navList">
-                <li class="sign2" style="font-size:medium;color:grey"><a href="././Home/Index.cshtml">بازگشت به صفحه اصلی </a> </li>
-                <li class="sign" style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.CatTitle) </a></li>
-                <li class="sign" style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.SubCatTitle) </a> </li>
-                <li style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.Title) </a></li>
-            </ol>
+                <ol class="navList">
+                    <li class="sign2" style="font-size:medium;color:grey"><a href="/home/index">بازگشت به صفحه اصلي </a> </li>
+                    <li class="sign" style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.CatTitle) </a></li>
+                    <li class="sign" style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.SubCatTitle) </a> </li>
+                    <li style="font-size:medium;color:grey"><a> @Html.DisplayFor(model => model.Title) </a></li>
+                </ol>
         </div>
-
         <div class="row productBox">
+               <div class="col-md-5 details">
+                   <div class="details-item productHead">
+                        <div id="head-row">
+                           <h2 style="color:black">@Html.DisplayFor(model => model.Title)</h2><i class="fa fa-share-alt fa-2x"></i>
+                         </div>
+                         <div class="value "><div>MANGO</div><label style="margin-right:.5rem">از برند </label></div>
+                         <div id="productid">@Html.DisplayFor(model => model.Id)<label style="margin-right:.5rem">کد </label></div>
+                    </div>
+               <!--   <div>
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <span class="fa fa-star checked"></span>
+                        }
+                    </div>-->
+                    
+               
+               <div class="details-item">
+                       <div class="value">@Html.DisplayFor(model => model.CatTitle)<label class="normal">دسته بندي</label> </div>
+                  </div>
+                  <div class="details-item"><div id="price" class="important value"><label style="color: rgb(98, 98, 98); font-size: medium;">تومان</label>@Html.DisplayFor(model => model.Price)<label class="normal">قيمت</label></div></div>
 
-            <div class="col-md-5 details">
-                <h2 style="color:darkslategrey">@Html.DisplayFor(model => model.Title)</h2>
-                <div id="productid">@Html.DisplayFor(model => model.Id)<label class="normal">کد محصول</label> </div>
-                <div>
-                    @for (int i = 0; i < 5; i++)
-                    {
-                        <span class="fa fa-star checked"></span>
-                    }
+                  <div class="details-item">
+                    <div class="value" >
+                       <span id="selectedColor">@Model.Colors[0].Title</span> 
+                       <label class="normal">رنگ </label>
+
+                    </div>
+                    <div style="margin-top:7px" class="color-choose value">
+                        @foreach (var color in Model.Colors)
+                        {
+                             <div>
+                                 <input data-image="@color.Title" type="radio" id="@color.Title" name="color" value="@color.Title">
+                                 <label style="display:flex;" for="@color.Title">
+                                     <span style="background-color: @color.Code;" class="optional">
+                                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                     </span>
+                                 </label>
+                             </div>
+                        }
+                    </div>
+
                 </div>
+                <div class="details-item">
+                    <div  class="value">
+                        <span id="selectedSize">small</span> 
+                       <label class="normal">سایز </label>
+                       
+                    </div>
+                    <div style="margin-top:7px" class="choose-size value">
+                        @{
+                            string[] sizes = { "S", "L", "M", "X-L" };
+                        }
+                        @foreach (var size in sizes)
+                        {
+                            <div>
+                                <input  data-image="@size" type="radio" id="@size" name="size" value="@size">
+                                <label style="display:flex;justify-content:center" for="@size">
+                                    <span class="optional">
+                                        @size
+                                    </span>
+                                </label>
+                            </div>
+                        }
 
-                <div class="value">@Html.DisplayFor(model => model.CatTitle)<label class="normal">دسته بندی</label> </div>
-                <div class="value">@Html.DisplayFor(model => model.Description)<label class="normal">جزییات</label></div>
-                @*<div class="value">@Html.DisplayFor(model => model.Color)<label class="normal">رنگ </label></div>*@
-                <div id="price" class="important"><label style="color: rgb(98, 98, 98); font-size: medium;">تومان</label>@Html.DisplayFor(model => model.Price)<label class="normal">قیمت</label></div>
-                <div id="btn-row">
+                    </div>
+                    </div>
+
+
+                <div id="btn-row" class="details-item">
                     <button class="submit">
-                        افزودن به سبد خرید<i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 20px 0 0"></i>
+                        افزودن به سبد خريد<i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 5px 0 0"></i>
                     </button>
-                    <button class="btn remove-btn" value="@Model.Id">-</button>
-                    <span id="count">0</span>
-                    <button class="btn add-btn" value="@Model.Id">+</button>
+                    <div style="width:30%;display:flex;justify-content:space-around">
+                        <button class="btn remove-btn" value="@Model.Id">-</button>
+                        <span id="count">0</span>
+                        <button class="btn add-btn" value="@Model.Id">+</button>
+                    </div>
+                </div>
+                <div class="details-item">
+                    <div class="value"><div style="direction:rtl;font-size:medium; text-align:justify;">@Html.DisplayFor(model => model.Description)</div></div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5" style="display:flex; align-items:center">
 
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -225,7 +381,6 @@
                 </div>
             </div>
             <div class="col-md-2 moreImages">
-
                 <div class="row">
                     @foreach (var item in Model.OtherImages)
                     {
@@ -239,6 +394,5 @@
         </div>
     </div>
 </body>
-
 </html>
-<script type="text/javascript" src="~/scripts/"></script>
+<script type="text/javascript" src="~/scripts/item/details.js"></script>

@@ -25,5 +25,6 @@ namespace OnlineShop.Models
         public DbSet<Role> Roles { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<ItemSize> ItemSizes { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
     }
 }
