@@ -21,8 +21,10 @@
         }
 
         fieldset {
-            background-color: #e0e0e0;
-            padding: 20px;
+            background-color: #eaeaea;
+            padding: 18px;
+            border-radius:5px;
+            margin:10px
         }
 
         select {
@@ -34,7 +36,8 @@
         }
 
         label {
-            text-align: left
+            text-align: left;
+            color: #424242;
         }
 
         .img {
@@ -52,17 +55,28 @@
         .size {
             margin: 10px 10px 0 40px;
         }
+
+        textarea {
+            max-width: 100% !important;
+            width: 100%
+        }
+
+        input[type=text], input[type=number], select, textarea {
+            border-radius: 5px;
+            border: 1px solid #efefef;
+            color: #424242;
+        }
     </style>
 </head>
 <body>
-    <h4>افزودن محصول</h4>
+    <h4 style="color: #424242">افزودن محصول</h4>
     <div style="direction:rtl">
         <form>
             <fieldset>
                 <div class="row">
                     <label class="col-md-1 ">عنوان</label>
                     <div class="col-md-2">
-                        <input type="text" id="pro-title" />
+                        <input type="text" id="pro-title"/>
                     </div>
                     <label class="col-md-1 ">دسته</label>
                     <div class="col-md-2">
@@ -91,21 +105,18 @@
                     </div>
                     <labe class="col-md-4" style="color:#041b45;font-size:11px;text-align:right;margin:5px 10px 0 0">تصویر اول به عنوان تصویر اصلی در نظر گرفته می‌شود.</labe>
                 </div>
-
                 <div class="row">
                     <label class="col-md-1">تصویر ۲</label>
                     <div class="col-md-4">
                         <input type="text" id="img2" class="img" />
                     </div>
                 </div>
-
                 <div class="row">
                     <label class="col-md-1">تصویر ۳</label>
                     <div class="col-md-4">
                         <input type="text" id="img3" class="img" />
                     </div>
                 </div>
-
                 <div class="row">
                     <label class="col-md-1">تصویر ۴</label>
                     <div class="col-md-4">
@@ -118,9 +129,16 @@
                 </div>
                 <div class="row">
                     <label class="col-md-1" style="margin-top:10px">سایز‌ها</label>
-                    <div id="sizes" style="margin-top:10px"></div>
+                    <div id="sizes"></div>
                 </div>
-                <div class="row" style="text-align:center;margin:20px 0">
+                <div class="row">
+                    <label class="col-md-1">توضیحات</label>
+                    <div class="col-md-8">
+                        <textarea rows="5" id="desc" ></textarea>
+                    </div>
+
+                </div>
+                <div class="row" style="text-align:center;margin:5px 0 0 0">
                     <button id="add" style="margin:0 auto">ثبت</button>
                 </div>
 
@@ -128,4 +146,8 @@
         </form>
     </div>
 </body>
+<script>
+    var Colors = @Html.Raw(ViewBag.Colors);
+    var Sizes = @Html.Raw(ViewBag.Sizes);
+</script>
 <script type="text/javascript" src="~/scripts/admin/add-product.js"></script>

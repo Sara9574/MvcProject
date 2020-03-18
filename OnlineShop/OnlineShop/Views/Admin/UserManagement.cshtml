@@ -78,11 +78,12 @@
                 </td>
 
                 <td>
-                    <span class="accept"> @Html.ActionLink("تایید", "Details", new { id = item.Id })</span> |
-                    <span class="reject"> @Html.ActionLink("رد", "Details", new { id = item.Id })</span>
+                    <span class="accept"> @Html.ActionLink("تایید", "VerifyUser", new { id = item.Id })</span> |
+                    <span class="reject"> @Html.ActionLink("رد", "RejectUser", new { id = item.Id })</span>
                 </td>
             </tr>
         }
 
     </table>
 </body>
+
