@@ -7,28 +7,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <style>
         div.nav {
             display: flex;
             justify-content: flex-end;
         }
-       .productHead {
+
+        .productHead {
             display: flex;
             align-items: flex-end;
             flex-direction: column;
-            justify-content:space-around;
+            justify-content: space-around;
         }
+
         label::before {
-           content:"\00a0";
+            content: "\00a0";
         }
-        
-       
+
+
         ol.navList {
             flex-direction: row-reverse;
             list-style-type: none;
             font-family: IRANSans;
             display: flex;
         }
+
         ol > li:hover a {
             background: white;
             text-decoration: none;
@@ -40,7 +51,7 @@
 
         .sign::before {
             content: "";
-            white-space:normal;
+            white-space: normal;
         }
 
         .sign2::before {
@@ -61,7 +72,7 @@
             border: 1px solid #f7f7f7;
             box-shadow: 3px 3px 15px -6px grey;
             background-color: #fafafa;
-            font-size:medium;
+            font-size: medium;
         }
 
             .add-btn:hover {
@@ -70,7 +81,7 @@
 
         .remove-btn {
             padding: 1px 7px;
-             font-size:large;
+            font-size: large;
             border: 1px solid #f7f7f7;
             box-shadow: 3px 3px 15px -6px grey;
             background-color: #fafafa;
@@ -92,7 +103,7 @@
                 cursor: default;
             }
 
-      /*  .submit {
+        /*  .submit {
             color: rgba(221, 25, 79, 0.92);
             padding: 5px;
             width: 50%;
@@ -103,22 +114,21 @@
             box-shadow: 3px 3px 8px -4px grey;
         }*/
 
-            .submit{
-                background-color: rgba(221, 25, 79, 0.92);
-                color: white;
-                width: 60%;
-                display:flex;
-                flex-wrap:nowrap;
-                justify-content:space-around;
-                border: 1px solid #f7f7f7;
-               
-            }
+        .submit {
+            background-color: rgba(221, 25, 79, 0.92);
+            color: white;
+            width: 60%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            border: 1px solid #f7f7f7;
+        }
 
         #btn-row {
             display: flex;
             justify-content: space-between;
             align-self: stretch;
-            flex-wrap:wrap-reverse;
+            flex-wrap: wrap-reverse;
             margin: 20px 0;
         }
 
@@ -162,15 +172,13 @@
         .value {
             display: flex;
             justify-content: flex-end;
-            align-items:center;
+            align-items: center;
             flex-wrap: nowrap;
             font-size: medium;
-            color:rgb(98, 98, 98);
-           
+            color: rgb(98, 98, 98);
         }
 
         #productid > label {
-           
         }
 
         #productid {
@@ -185,8 +193,7 @@
         }
 
         .details-item {
-            margin:10px 0;
-            
+            margin: 10px 0;
         }
 
         .product-color {
@@ -196,13 +203,15 @@
         .color-choose div {
             display: inline-block;
         }
+
         input[type="radio"] {
             display: none;
         }
+
         .optional {
             display: flex;
-            justify-content:center;
-            align-items:center;
+            justify-content: center;
+            align-items: center;
             width: 35px;
             height: 35px;
             margin: -1px 3px 0 0;
@@ -214,14 +223,14 @@
             background-repeat: no-repeat;
             background-position: center;
             text-align: center;
-            font-size:small;
-            
+            font-size: small;
         }
+
         .color-choose > div > label > span > img {
-                opacity: 0;
-                transition: all .3s ease;
-                display: inline-block;
-            }
+            opacity: 0;
+            transition: all .3s ease;
+            display: inline-block;
+        }
 
         input[type="radio"] {
             display: none;
@@ -238,29 +247,22 @@
             text-align: center;
             margin: 0 auto;
         }
-        input:checked + label span{
+
+        input:checked + label span {
             border: 2px solid rgba(0, 0, 0, 0.33);
         }
+
         #head-row {
-            
-            display:flex;
-            align-self:stretch;
-            flex-direction:row-reverse;
-            justify-content:space-between;
+            display: flex;
+            align-self: stretch;
+            flex-direction: row-reverse;
+            justify-content: space-between;
         }
+
         label {
             margin-bottom: 0px !important;
         }
-       
     </style>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="~/scripts/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color:#f7f7f7">
 
