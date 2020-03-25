@@ -320,21 +320,17 @@
                 </div>
                 <div class="details-item">
                     <div  class="value">
-                        <span id="selectedSize">small</span> 
+                        <span id="selectedSize">@Model.Sizes[0].Tag</span> 
                        <label class="normal">سایز </label>
-                       
                     </div>
                     <div style="margin-top:7px" class="choose-size value">
-                        @{
-                            string[] sizes = { "S", "L", "M", "X-L" };
-                        }
-                        @foreach (var size in sizes)
+                        @foreach (var size in Model.Sizes)
                         {
                             <div>
-                                <input  data-image="@size" type="radio" id="@size" name="size" value="@size">
-                                <label style="display:flex;justify-content:center" for="@size">
+                                <input  data-image="@size.Tag" type="radio" id="@size.Tag" name="size" value="@size.Tag">
+                                <label style="display:flex;justify-content:center" for="@size.Tag">
                                     <span class="optional">
-                                        @size
+                                        @size.Tag
                                     </span>
                                 </label>
                             </div>

@@ -9,7 +9,8 @@ $(document).ready(function () {
             selectedColors.push($(this).attr('id').replace("color-", ""));
         });
         $('#sizes input:checked').each(function () {
-            selectedSizes.push($(this).attr('id').replace("size-"), "");
+          
+            selectedSizes.push($(this).attr('id').replace("size-", ""));
         });
         selectedColors = selectedColors.map(Number);
         selectedSizes = selectedSizes.map(Number);
@@ -51,6 +52,8 @@ $(document).ready(function () {
             $('#price').focus();
             return alert("قیمت را وارد کنید!")
         }
+
+      
 
         $.post("/item/addproduct", {
             Title: title,
