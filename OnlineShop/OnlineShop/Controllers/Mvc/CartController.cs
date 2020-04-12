@@ -45,7 +45,7 @@ namespace OnlineShop.Controllers.Mvc
         }
         [CustomAuthorize]
         [HttpPost]
-        public async Task<ActionResult> Add(int id)
+        public async Task<ActionResult> Add(int id, int count)
         {
             using (var db = new OnlineShopDbContext())
             {
@@ -72,7 +72,7 @@ namespace OnlineShop.Controllers.Mvc
                 if (currentInvoiceItems.Any(x => x.ItemId == id))
                 {
                     var currentInvoiceItem = currentInvoiceItems.Where(x => x.ItemId == id).FirstOrDefault();
-                    currentInvoiceItem.Count++;
+                    currentInvoiceItem.Count = count;
                     currentInvoiceItem.TotalPrice = (currentInvoiceItem.Count * currentInvoiceItem.EachItemPrice);
                     currentInvoiceItem.SubmissionDate = DateTime.Now;
                     await db.SaveChangesAsync();
@@ -85,7 +85,7 @@ namespace OnlineShop.Controllers.Mvc
                         InvoiceId = invoiceId,
                         ItemId = id,
                         SubmissionDate = DateTime.Now,
-                        Count = 1,
+                        Count = count,
                         EachItemPrice = item.Price,
                         TotalPrice = item.Price,
                     };

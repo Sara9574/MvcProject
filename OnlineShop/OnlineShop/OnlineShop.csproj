@@ -418,6 +418,7 @@
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\home\index.js" />
+    <Content Include="Scripts\item\details.js" />
     <Content Include="Scripts\item\items.js" />
     <Content Include="Scripts\index.js.flow" />
     <Content Include="Scripts\esm\popper.min.js.map" />

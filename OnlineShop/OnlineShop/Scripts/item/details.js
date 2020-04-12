@@ -9,17 +9,22 @@ $(document).ready(function () {
     $("input:radio[name=size]").change(function () {
         var selectedSize = $('input:radio[name=size]:checked').val();;
         $("#selectedSize").text(selectedSize);
-
     });
    
 
     $(".add-btn").on('click', function (e) {
         var current = $(this).closest('div').find('span').text();
+        let currentCount = parseInt(current);
+        $(this).closest('div').find('span').text(currentCount + 1)
+    });
 
+
+
+    $(".submit-add-btn").on('click', function (e) {
         $.ajax({
            type: "POST",
             url: '/cart/Add',
-            data: { id: $(this).val() },
+            data: { id: $(this).val(), count: $("#count").text() },
        }).fail(function () {
            alert("error");
         })
@@ -34,8 +39,6 @@ $(document).ready(function () {
                     }
                 })
             });;
-        let currentCount = parseInt(current);
-       $(this).closest('div').find('span').text(currentCount + 1)
     });
 
     $(".remove-btn").on('click', function (e) {
