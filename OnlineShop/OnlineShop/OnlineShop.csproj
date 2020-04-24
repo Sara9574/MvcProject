@@ -348,6 +348,10 @@
     <Compile Include="Migrations\202003181845552_IsReviewedIsAddedToUser.designer.cs">
       <DependentUpon>202003181845552_IsReviewedIsAddedToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004241713369_altercatnames.cs" />
+    <Compile Include="Migrations\202004241713369_altercatnames.designer.cs">
+      <DependentUpon>202004241713369_altercatnames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OnlineShopDbContext.cs" />
     <Compile Include="Models\Tables\BaseLookUpTable.cs" />
@@ -709,6 +713,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003181845552_IsReviewedIsAddedToUser.resx">
       <DependentUpon>202003181845552_IsReviewedIsAddedToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004241713369_altercatnames.resx">
+      <DependentUpon>202004241713369_altercatnames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

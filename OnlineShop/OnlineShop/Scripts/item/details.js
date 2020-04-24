@@ -2,12 +2,12 @@ $(document).ready(function () {
 
     
     $("input:radio[name=color]").change(function () {
-        var selectedColor = $('input[type="radio"]:checked').val();;
+        var selectedColor = $('input[type="radio"]:checked').val();
         $("#selectedColor").text(selectedColor);
        
     });
     $("input:radio[name=size]").change(function () {
-        var selectedSize = $('input:radio[name=size]:checked').val();;
+        var selectedSize = $('input:radio[name=size]:checked').val();
         $("#selectedSize").text(selectedSize);
     });
    
