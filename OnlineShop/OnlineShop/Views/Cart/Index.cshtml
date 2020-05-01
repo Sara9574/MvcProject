@@ -13,6 +13,25 @@
     <title>Details</title>
     <style>
 
+        @@media screen and (max-width:920px) {
+            #items {
+                width: 85% !important;
+                float: none !important;
+            }
+
+            .factor {
+                position: static !important;
+                width: 85% !important;
+                float: none !important;
+                display: inline-block !important;
+            }
+
+            .item-wrapper {
+                display: inline-block !important;
+                float: none !important;
+            }
+        }
+
         .lbl {
             font-size: 12px;
         }
@@ -69,7 +88,7 @@
             text-align: center;
             border-radius: 10px;
             background-color: white;
-            display:none;
+            display: none;
         }
 
         #items {
@@ -82,7 +101,6 @@
         .factor {
             float: left;
             width: 25%;
-            height: 55%;
             background-color: white;
             margin: 10px 70px;
             box-shadow: 2px 6px 20px -12px grey;
@@ -90,6 +108,7 @@
             border-radius: 10px;
             position: fixed;
             display: none;
+            padding-bottom: 20px;
         }
 
         .factor-title {
@@ -133,7 +152,7 @@
                     <div style="font-weight:600;font-size:15px">@item.Title</div>
                     <div style="font-size:14px;margin-top:5px"> رنگ: @item.Color</div>
                     <div style="font-size:14px;margin:5px 0"> M :سایز</div>
-                    <div style="font-size:14px; font-family:IRANSansFaNum;text-align:right;direction:rtl"> قیمت واحد: <label  class="each-price">@item.EachPrice</label>  <label style="font-size:12px">تومان</label></div>
+                    <div style="font-size:14px; font-family:IRANSansFaNum;text-align:right;direction:rtl"> قیمت واحد: <label class="each-price">@item.EachPrice</label>  <label style="font-size:12px">تومان</label></div>
                 </div>
 
 
@@ -177,7 +196,7 @@
         </div>
         <hr />
         <div style="direction: rtl;text-align:right;margin:20px;">
-            <div style="width:auto;display:inline-block;direction: ltr;" >جمع کل</div>
+            <div style="width:auto;display:inline-block;direction: ltr;">جمع کل</div>
             <div style="float:left">
                 <div style="font-family:IRANSansFaNum;width:auto;display:inline-block;font-size:16px" id="sum"></div>
                 <div style="display:inline-block">تومان</div>
