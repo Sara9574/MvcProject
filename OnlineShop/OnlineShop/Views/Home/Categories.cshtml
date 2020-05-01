@@ -1,21 +1,35 @@
 ﻿@model IEnumerable<OnlineShop.ViewModels.CategoryViewModel>
 <style>
 
+    @@media screen and (max-width:951px) {
+        .cart-count {
+            top: 85px !important;
+        }
+    }
+
     @@media screen and (max-width:931px) {
         .nav-list-items {
             margin-left: auto !important;
         }
     }
-
+    
     @@media screen and (max-width:772px) {
         #bars {
             display: inline-block !important;
         }
-
         .nav-list-items {
             display: none;
         }
+         .cart-count {
+            top: 35px !important;
+        }
     }
+       @@media screen and (max-width:657px) {
+        .cart-count {
+            top: 85px !important;
+        }
+    }
+
 
     @@media screen and (max-width:478px) {
         #search-form {
@@ -27,6 +41,16 @@
         #search-form {
             min-width: 270px !important;
         }
+
+        .navbar-brand {
+            margin-left: auto;
+            margin-right: auto;
+            min-width: 130px !important;
+        }
+
+        .cart-count {
+            top: 120px !important;
+        }
     }
 
     @@media screen and (max-width:436px) {
@@ -34,15 +58,21 @@
             margin-left: auto;
             margin-right: auto;
         }
+    }  
+    @@media screen and (max-width:327px) {
+           .cart-count {
+            top: 140px !important;
+        }
     }
 
-    /*@@media screen and (max-width:658px) {
-        .navbar-brand {
-            margin-left: auto;
-            margin-right: auto;
-            min-width:100px
+    @@media screen and (max-width:310px) {
+        #btn-search {
+            margin: 0 !important;
         }
-    }*/
+    }
+
+ 
+
 
     ul {
         list-style: none;
@@ -179,6 +209,10 @@
     #btn-search {
         margin-right: 15px;
         background-color: white;
+    }
+
+    a {
+        font-family: IRANSans;
     }
 </style>
 
