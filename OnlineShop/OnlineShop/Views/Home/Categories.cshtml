@@ -1,6 +1,49 @@
 ﻿@model IEnumerable<OnlineShop.ViewModels.CategoryViewModel>
 <style>
 
+    @@media screen and (max-width:931px) {
+        .nav-list-items {
+            margin-left: auto !important;
+        }
+    }
+
+    @@media screen and (max-width:772px) {
+        #bars {
+            display: inline-block !important;
+        }
+
+        .nav-list-items {
+            display: none;
+        }
+    }
+
+    @@media screen and (max-width:478px) {
+        #search-form {
+            margin-right: 0 !important;
+        }
+    }
+
+    @@media screen and (max-width:457px) {
+        #search-form {
+            min-width: 270px !important;
+        }
+    }
+
+    @@media screen and (max-width:436px) {
+        .navbar-brand {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    /*@@media screen and (max-width:658px) {
+        .navbar-brand {
+            margin-left: auto;
+            margin-right: auto;
+            min-width:100px
+        }
+    }*/
+
     ul {
         list-style: none;
         padding: 0;
@@ -103,37 +146,65 @@
     }
 
         .navbar-a:hover {
-            color: lightgrey!important;
+            color: lightgrey !important;
             text-decoration: none
         }
 
-         ul {
+    ul {
         margin-top: 0;
-        margin-bottom: 0!important;
+        margin-bottom: 0 !important;
+    }
+
+    nav-li-a {
+        padding-right: 0 !important;
+    }
+
+    #search-form {
+        min-width: 300px;
+        margin-right: 20px
+    }
+
+    .search-element {
+        display: inline-block;
+        padding: 5px 10px;
+        border: 3px;
+        border-radius: 5px;
+    }
+
+    #bars {
+        font-size: 25px;
+        display: none;
+    }
+
+    #btn-search {
+        margin-right: 15px;
+        background-color: white;
     }
 </style>
 
 <div style="direction:rtl" class="fixedheader">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="background-color:#821130!important;">
+    <nav class="navbar" style="background-color:#821130!important;">
+
+        <a href="#" id="bars">
+            <i class="fa fa-bars"></i>
+        </a>
         <a class="navbar-brand" href="/home/index" style="font-family:IRANSans;text-align:right">
             اسم سایت
             <br />
             <span style="font-size:10px">فروشگاه آنلاین پوشاک</span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-family:IRANSans">
 
-            <ul class="main-navigation" style="margin-right:20px">
+        <div style="font-family:IRANSans" class="nav-list-items">
+
+            <ul style="margin-right:20px">
                 <li>
                     <a href="#" class="navbar-a">دسته‌بندی‌ها</a>
                     <ul style="text-align:right;">
                         @foreach (var item in @Json.Decode(ViewBag.Cats))
                         {
                             <li style="width:100px">
-                                <a href="#" class="navbar-a">@item.Title<span style="width:10px;float:left">⯇</span></a>
+                                <a href="#" class="navbar-a nav-li-a">@item.Title<span style="width:10px;float:left">⯇</span></a>
                                 <ul>
                                     @foreach (var items in Model)
                                     {
@@ -151,28 +222,29 @@
                 <li><a href="/home/contact" class="navbar-a">تماس با ما</a></li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0">
-                <input id="q-search" class="form-control mr-sm-2" type="search" placeholder="مثلا کفش" aria-label="Search">
-                <button id="btn-search" class="btn my-sm-0" style="margin-right:20px;border:3px;border-radius:5px;background-color:white">جستجو</button>
-            </form>
-            <div style="margin-right:auto;width:180px;color:#fff!important">
-                @if (!String.IsNullOrWhiteSpace(User.Identity.Name))
-                {
-                    <a class="navbar-a" href="/account/userprofile">@User.Identity.Name</a>
-                    <span>|</span>
-                    <a class="navbar-a" href="/account/SignOut"> خروج</a>
-                }
-                else
-                {
-                    <a class="navbar-a" href="/account/login">ورود</a>
-                    <span>|</span>
-                    <a class="navbar-a" href="/account/signup">ثبت نام</a>
-                }
-                <a href="/cart" id="cart-icon" class="navbar-a">
-                    <i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 20px 0 0"></i><span id="cart-count" style="display:none"></span>
-                </a>
-            </div>
 
+
+        </div>
+        <form id="search-form">
+            <input id="q-search" class="search-element" type="search" placeholder="مثلا کفش" aria-label="Search">
+            <button id="btn-search" class="search-element">جستجو</button>
+        </form>
+        <div id="login" style="margin-right:auto;min-width:180px;color:#fff!important">
+            @if (!String.IsNullOrWhiteSpace(User.Identity.Name))
+            {
+                <a class="navbar-a" href="/account/userprofile">@User.Identity.Name</a>
+                <span>|</span>
+                <a class="navbar-a" href="/account/SignOut"> خروج</a>
+            }
+            else
+            {
+                <a class="navbar-a" href="/account/login">ورود</a>
+                <span>|</span>
+                <a class="navbar-a" href="/account/signup">ثبت نام</a>
+            }
+            <a href="/cart" id="cart-icon" class="navbar-a">
+                <i class="fa fa-shopping-cart" style="font-size:x-large;margin:0 10px 0 0"></i><span id="cart-count" style="display:none"></span>
+            </a>
         </div>
 
     </nav>
